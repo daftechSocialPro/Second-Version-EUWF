@@ -1141,10 +1141,17 @@ h6 {
 .main-header__btn + .main-header__btn {
   margin-left: 30px;
 }
+.page-header{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
 .main-header__logo img{
   width: 110px;
   height: 100px;
-  margin: 10px;
+  /* margin-left: -20px;
+  margin-top: 8px; */
+  margin: 8px -20px;
 }
 .main-header__logo{
   margin-left: 40px;
@@ -1465,7 +1472,8 @@ h6 {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-left: 27px;
+    margin-left: 150px;
+    margin-top: -130px;
   }
 }
 
@@ -5636,12 +5644,18 @@ h6 {
 .about-one .container {
   position: relative;
 }
+.moto{
+  font-size: 10px !important;
+}
 
 .about-one__shape-1, .about-one__shape-2 {
   position: absolute;
   display: none;
 }
-
+.about-one__shape-1 img{
+  width: 500px;
+  height: 600px;
+}
 @media (min-width: 992px) {
   .about-one__shape-1, .about-one__shape-2 {
     display: block;
@@ -5705,10 +5719,10 @@ h6 {
 }
 
 .about-one__tagline {
-  color: var(--paroti-base, #df5311);
+  color: #768385;
   font-size: 20px;
   line-height: 1.5em;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.04em;
   margin-bottom: 1.375rem;
 }

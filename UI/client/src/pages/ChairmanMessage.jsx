@@ -22,7 +22,7 @@ function About() {
     <>
       <section
         className="page-header"
-        style={{ backgroundImage: "url(/assets/images/backgrounds/1.jpeg)" }}
+        style={{ backgroundImage: "url(/assets/images/back11.jpg)" }}
       >
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
@@ -38,15 +38,15 @@ function About() {
         </div>
       </section>
       <section className="sec-pad-top sec-pad-bottom about-one">
-        <div className="about-one__shape-1 float-bob-y">
+        {/* <div className="about-one__shape-1 float-bob-y">
           <img src="/assets/images/shapes/about-1-1.png" alt="" />
         </div>
         <div className="about-one__shape-2 float-bob-x">
           <img src="/assets/images/shapes/about-1-2.png" alt="" />
-        </div>
+        </div> */}
         <div className="container">
           <div className="row">
-            <div className="col-lg-6">
+            {/* <div className="col-lg-6">
               <div
                 className="about-one__images wow fadeInLeft"
                 data-wow-duration="1500ms"
@@ -62,14 +62,14 @@ function About() {
                   alt=""
                 />
               </div>
-            </div>
-            <div className="col-lg-6">
+            </div> */}
+            <div className="col-lg-12">
               <div className="about-one__content">
                 <div className="sec-title">
                   <p className="sec-title__tagline">
                     {t("welcome.1")}
                   </p>
-                  <h2 className="sec-title__title">{t("whoweare.1")}</h2>
+                  <h2 className="sec-title__title" style={{fontWeight:400, letterSpacing:1}}>Message from our director</h2>
                 </div>
                 {/* <ul className="list-unstyled about-one__list">
                   <li>
@@ -81,12 +81,13 @@ function About() {
                     Deserving People
                   </li>
                 </ul> */}
-                <div className="about-one__tagline">
-                {t("welcome.2")}
+                <div className="about-one__tagline" style={{fontWeight:"500", fontSize:"15px", textAlign:"justify"}}>
+                14 years ago @ Wolkite Town on Tefera Hotel during dinner time there was a noble idea raised to established National Water forum to create the Utilities as a platform to bring effective, efficient, modernized & sustainable service delivery through experience sharing among each other and Capacity Building of the Utilities on the round table discussion. The first idea was provock by Ato Petros T/wold who is the former Wlokite Town Water Supply and Sewerage Enterprise Manager. The idea is supported by Ato Yitbarek Tessema Who is the former World Bank Country Directorate Gulilat Birhane who is the Consultancy in Metaferiya Consultance,Ato Ashenafi Kibret who is Metaferiya Consulancy,Ato Eyob Defere who is the Consultancy of Eyob Defere Management and finally the idea was seconded by Ato Bushira Mohammed who is the public retionship head of Harar Water and Sewerage Athority.After many discussion they have  reached to an agreement to establish the Ethiopian Water Forum to achieve the above mentioned objectives. Moreover, To Petros T/wold was collect and organized the voluntary Utilities by traveling in different regions/Utilities across the Country. Finally, the first Assembly was   hosted in Wolkite Town Water Supply and Sewerage Service Enterprise and the National Water Forum was established in 1999 E.C.
+Now a days, I am proud of the National Water Forum developed into the name of Ethiopian Urban Water Federation which is serves as a platform and an Umbrella of all Ethiopian Utilities by exercising Key Performance Indicators and Benchmarking as well as Management Information System to bring an effective, efficient, modernized & sustainable service delivery of the Utilities.
+Many thanks those who have contributed to establish the National Water.
+Namely: - H.E. Ambasssdor Assifaw Dingamo, Ato Yitbarek Tessema,Ato Gulilat Birhane,Ato Ashenafi Kibret,Ato Eyob Defere,Ato Bushira Mohammed,W/ro Girmawit Haile,Ato Abduselam Yideg(PUT),Jemal Reshid,Ato Gidena Abebe,and others.
                 </div>
-                <p className="about-one__text">
-                 {t("welcome.3")}
-                </p>
+              
                 <div className="about-one__meta clearfix">
                   <img src="/assets/images/testimonals/muktar.png" style={{height:'91px'}} alt="" />
                   <h3 className="about-one__name"> Muktar Ahmed</h3>

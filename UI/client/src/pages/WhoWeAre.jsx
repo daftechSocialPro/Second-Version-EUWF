@@ -22,7 +22,7 @@ function About() {
     <>
       <section
         className="page-header"
-        style={{ backgroundImage: "url(/assets/images/backgrounds/1.jpeg)" }}
+        style={{ backgroundImage: "url(/assets/images/back11.jpg)"  }}
       >
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
@@ -52,13 +52,8 @@ function About() {
                 data-wow-duration="1500ms"
               >
                 <img
-                  src="/assets/images/backgrounds/4.jpeg"
-                  style={{ maxWidth: "485px" }}
-                  alt=""
-                />
-                <img
-                  //src="/assets/images/backgrounds/3.jpeg"
-                  style={{ maxWidth: "275px" }}
+                  src="/assets/images/who1.jpg"
+                  style={{ maxWidth: "585px" }}
                   alt=""
                 />
               </div>
@@ -71,20 +66,10 @@ function About() {
                   </p>
                   <h2 className="sec-title__title">{t("whoweare.1")}</h2>
                 </div>
-                {/* <ul className="list-unstyled about-one__list">
-                  <li>
-                    <i className="fa fa-check-circle"></i>
-                    Donate to Poors
-                  </li>
-                  <li>
-                    <i className="fa fa-check-circle"></i>
-                    Deserving People
-                  </li>
-                </ul> */}
                 <div className="about-one__tagline">
                 {t("welcome.2")}
                 </div>
-                <p className="about-one__text">
+                <p className="about-one__tagline">
                  {t("welcome.3")}
                 </p>
               </div>

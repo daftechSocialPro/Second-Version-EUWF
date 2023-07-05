@@ -230,7 +230,7 @@ function Home() {
               <div
                 className="slider-one__image"
                 style={{
-                  backgroundImage: "url(/assets/images/backgrounds/1.jpeg)",
+                  backgroundImage: "url(/assets/images/backgrounds/111.png)",
                 }}
               ></div>
 
@@ -251,7 +251,7 @@ function Home() {
               <div
                 className="slider-one__image"
                 style={{
-                  backgroundImage: "url(/assets/images/backgrounds/2.jpeg)",
+                  backgroundImage: "url(/assets/images/backgrounds/22.jpg)",
                 }}
               ></div>
 
@@ -273,7 +273,7 @@ function Home() {
               <div
                 className="slider-one__image"
                 style={{
-                  backgroundImage: "url(/assets/images/backgrounds/4.jpeg)",
+                  backgroundImage: "url(/assets/images/backgrounds/44.png)",
                 }}
               ></div>
 

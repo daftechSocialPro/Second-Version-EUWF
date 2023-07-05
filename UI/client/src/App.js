@@ -14,7 +14,9 @@ import NewsDetail from "./pages/NewsDetail";
 import Vision from "./pages/Vision"
 import WhoWeAre from "./pages/WhoWeAre";
 import ValueObjective from "./pages/ValueObjective";
-import Chairmanmessage from "./pages/ChairmanMessage"
+import Chairmanmessage from "./pages/ChairmanMessage";
+import Events from "./pages/Events";
+import Training from "./pages/Training";
 function App() {
   return (
     <BrowserRouter>
@@ -25,6 +27,8 @@ function App() {
           <Route path="vision" element={<Vision/>} />
           <Route path="valueobjective" element={<ValueObjective/>} /> 
           <Route path="chairmanmessage" element={<Chairmanmessage/>} />
+          <Route path="events" element={<Events/>} />
+          <Route path="training" element={<Training/>} />
           <Route path="services" element={<Service/>} />
           <Route path="team"  element={<BoardMembers/>} />
           <Route path = "contact" element= {<Contact/>} />
