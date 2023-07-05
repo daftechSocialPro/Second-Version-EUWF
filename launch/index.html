@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Countdown Celebration</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="fire.css">
+</head>
+<body>
+    <video id="videoBG" autoplay loop muted>
+        <source src="2.gif.mp4" type="video/mp4">
+      </video>
+  <div class="container">
+    <button id="startButton" onclick="startCountdown()">Start</button>
+    <div id="countdown"></div>
+    <div id="celebration" class="hidden">
+      <div class="popup">
+        <div class="fireworks" >
+            <div class="firework">
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+            </div>
+            <div class="firework" style="margin-top: -70px">
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+            </div>
+            <div class="firework">
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+            </div>
+            <div class="firework" style="margin-top: 70px">
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+            </div>
+            <div class="firework">
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+            </div>
+            <div class="firework" style="margin-top: -70px">
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark silver"></div>
+              </div>
+            </div>
+            <div class="firework">
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+              <div class="explosion">
+                <div class="spark gold"></div>
+              </div>
+            </div>
+          </div>
+        <div class="decoration"></div>
+      </div>
+    </div>
+    <div id="fireworks" class="hidden"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
