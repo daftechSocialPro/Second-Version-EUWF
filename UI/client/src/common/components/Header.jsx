@@ -84,7 +84,7 @@ function Header() {
           <ul className="main-menu__list">
             <li className={location.pathname === "/" ? " current" : ""}>
               <Link to="/">{t("home.1")}</Link>
-            </li>         
+            </li>          
             <li
               className={
                 location.pathname === "/whoweare" ||
@@ -139,7 +139,8 @@ function Header() {
             <li
               className={
                 location.pathname === "/events" ||
-                location.pathname === "/training" 
+                location.pathname === "/training" ||
+                location.pathname === "/climate"
                 
                   ? "menu-item-has-children active"
                   : "menu-item-has-children"
@@ -160,6 +161,16 @@ function Header() {
                     Trainings & Capacity Building
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    className={
+                      location.pathname === "/climate" ? "active" : ""
+                    }
+                    to="/climate"
+                  >
+                    Climate Resilience
+                  </Link>
+                </li>
               </ul>
             </li>
             <li className={location.pathname === "/news" ? "current" : ""}>
@@ -168,7 +179,8 @@ function Header() {
             <li
               className={
                 location.pathname === "/orgstract" ||
-                location.pathname === "/team"
+                location.pathname === "/team" ||
+                location.pathname === "/utility"
                   ? "menu-item-has-children active"
                   : "menu-item-has-children"
               }
@@ -192,8 +204,8 @@ function Header() {
                     Members Profile
                   </Link>
                 </li>
-                <li className={location.pathname === "/team" ? "current" : ""}>
-              <Link to="/team">{t("memberutilites.1")}</Link>
+                <li className={location.pathname === "/utility" ? "current" : ""}>
+              <Link to="/utility">{t("memberutilites.1")}</Link>
             </li>
               </ul>
             </li>
@@ -221,7 +233,7 @@ function Header() {
                     }
                     to="/newsandevents"
                   >
-                    News & Events
+                    Events & Forums
                   </Link>
                 </li>
               </ul>

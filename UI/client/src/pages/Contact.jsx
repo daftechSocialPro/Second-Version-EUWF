@@ -57,7 +57,7 @@ function Contact() {
     <>
       <section
         className="page-header"
-        style={{ backgroundImage: "url(/assets/images/backgrounds/1.jpeg)" }}
+        style={{ backgroundImage: "url(/assets/images/back11.jpg)" }}
       >
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">

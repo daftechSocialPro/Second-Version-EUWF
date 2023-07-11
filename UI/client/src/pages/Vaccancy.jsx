@@ -45,7 +45,7 @@ const linkName= readMore?'Read Less << ':'Read More >> '
     <>
       <section
         className="page-header"
-        style={{ backgroundImage: "url(/assets/images/backgrounds/1.jpeg)" }}
+        style={{ backgroundImage: "url(/assets/images/back11.jpg)" }}
       >
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
@@ -76,18 +76,12 @@ const linkName= readMore?'Read Less << ':'Read More >> '
                   <h6  className='title'>Published By: {item.user.fullName}</h6>
                   <h6  className='title'>{item.toDateTime}</h6>
                   <h6 className='datee'>Posted 6 days ago</h6>
-                  <p dangerouslySetInnerHTML={{ __html: item.description.slice(0,399) }}></p>
+                  <p dangerouslySetInnerHTML={{ __html: item.description.slice(0,397) }}></p>
                       <a className="btuu" onClick={()=>{setReadMore(!readMore)}}><span>{linkName}</span></a>
                       {readMore &&  <p dangerouslySetInnerHTML={{ __html:item.description.slice(399,-1) }} ></p>}
                  
                   <p><span>For any inquiries contact us </span>{item.email}</p>
-                  <Pagination
-                  className="pagination-bar"
-                  currentPage={currentPage}
-                  totalCount={vaccancy.length}
-                  pageSize={PageSize}
-                  onPageChange={(page) => setCurrentPage(page)}
-                />
+               
                   </div>
                  
                 </div>
@@ -101,6 +95,13 @@ const linkName= readMore?'Read Less << ':'Read More >> '
 </div>
 
           </div>
+          <Pagination
+                  className="pagination-bar"
+                  currentPage={currentPage}
+                  totalCount={vaccancy.length}
+                  pageSize={PageSize}
+                  onPageChange={(page) => setCurrentPage(page)}
+                />
         </div>
       </section>
      

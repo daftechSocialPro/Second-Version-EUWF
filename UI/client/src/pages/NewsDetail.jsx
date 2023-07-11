@@ -10,6 +10,8 @@ import dateformat from "dateformat";
 import './style.css'
 function NewsDetail() {
   const location = useLocation();
+  console.log("detail")
+  console.log(location)
   const [news, setNews] = useState(location.state.news && location.state.news);
   const [filterdList, setfilterdnewsList] =useState(location.state.newsList && location.state.newsList);
   const [newsList, setNewsList] = useState(

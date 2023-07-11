@@ -30,7 +30,7 @@ function Climet() {
     <>
       <section
         className="page-header"
-        style={{ backgroundImage: "url(/assets/images/backgrounds/111.png)" }}
+        style={{ backgroundImage: "url(/assets/images/back11.jpg)" }}
       >
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">

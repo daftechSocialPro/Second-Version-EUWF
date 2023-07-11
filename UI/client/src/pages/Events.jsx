@@ -4,9 +4,10 @@ import { assetUrl, urlNews, urlSponsor } from "../endpoints";
 import { useTranslation } from 'react-i18next'
 import axios from "axios";
 import dateformat from "dateformat";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import './about.css'
 function About() {
+
   const [news, setNews] = useState([]);
   const [filterdList, setfilterdnewsList] =useState([]);
   const [newsList, setNewsList] = useState([]);
@@ -24,7 +25,13 @@ function About() {
     return `${assetUrl}/${item}`;
   };
   useEffect(()=>{
-
+    axios
+    .get(urlNews)
+    .then((res) => {
+      setfilterdnewsList(res.data);
+      console.log('newsdata', res.data)
+    })
+    .catch((err) => console.error(err));
     setfilterdnewsList(
     newsList.filter(news => news.title.toLowerCase().includes(searchParm.toLowerCase()))
   )
@@ -153,7 +160,7 @@ function About() {
     autoplaybuttonoutput: 'false',
     controls: false,
   };
-
+console.log(filterdList,"filter list")
   return (
     <>
       <section

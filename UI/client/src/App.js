@@ -17,6 +17,11 @@ import ValueObjective from "./pages/ValueObjective";
 import Chairmanmessage from "./pages/ChairmanMessage";
 import Events from "./pages/Events";
 import Training from "./pages/Training";
+import OrgStract from "./pages/OrgStruct";
+import Portfolio from "./pages/MemberProfile"
+import Gallery from "./pages/Gallary"
+import EventNews from "./pages/NewEvents"
+import Climet from "./pages/Climet"
 function App() {
   return (
     <BrowserRouter>
@@ -30,13 +35,17 @@ function App() {
           <Route path="events" element={<Events/>} />
           <Route path="training" element={<Training/>} />
           <Route path="services" element={<Service/>} />
-          <Route path="team"  element={<BoardMembers/>} />
+          <Route path="utility"  element={<BoardMembers/>} />
           <Route path = "contact" element= {<Contact/>} />
           <Route path="news" element={<News/>} />
           <Route path="news/detail" element={<NewsDetail/>} />
           <Route path = "researches" element={<Researches/>} />
           <Route path="vaccancy" element={<Vaccancy/>} />
-          
+          <Route path="orgstract" element={<OrgStract/>} />
+          <Route path="team" element={<Portfolio/>} />
+          <Route path="gallery" element={<Gallery/>} />
+          <Route path="newsandevents" element={<EventNews/>} />
+          <Route path="climate" element={<Climet/>} />
         </Route>
       </Routes>
     </BrowserRouter>
