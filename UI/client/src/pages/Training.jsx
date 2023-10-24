@@ -50,7 +50,7 @@ function About() {
       <section className="sec-pad-top sec-pad-bottom about-one">
          <div className="containerrr">
       <div className="columnnn">
-        <img src="path/to/image.jpg" className="imgg" alt="Image" />
+        <img src="/assets/images/back11.jpg" className="imgg" alt="Image" />
         {/* <video src="path/to/video.mp4" className="vidd" controls></video> */}
       </div>
       <div className="columnnn">

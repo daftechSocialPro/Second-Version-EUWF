@@ -125,7 +125,7 @@ function News() {
     <>
       <section
         className="page-header"
-        style={{ backgroundImage: "url(/assets/images/backgrounds/1.jpeg)" }}
+        style={{ backgroundImage: "url(/assets/images/back11.jpg)" }}
       >
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
@@ -184,11 +184,6 @@ function News() {
           </div>
         </div>
       </section>
-      <section className="sec-pad-top sec-pad-bottom donation-two">
-        </section>
-
-
-
       <section className="sec-pad-top sec-pad-bottom sponsor-carousel sponsor-carousel--home-2">
         <div className="container">
           <OwlCarousel className="owl-theme " {...option6}>

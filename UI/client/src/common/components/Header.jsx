@@ -201,7 +201,7 @@ function Header() {
                     }
                     to="/team"
                   >
-                    Members Profile
+                    Team Profile
                   </Link>
                 </li>
                 <li className={location.pathname === "/utility" ? "current" : ""}>
