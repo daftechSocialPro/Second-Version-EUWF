@@ -7,7 +7,7 @@ using Org.BouncyCastle.Utilities.IO;
 
 namespace DAFwebAPI.Services.Team
 {
-    public class TeamService
+    public class TeamService : ITeamService
     {
         private readonly ApplicationDbContext _context;
         public TeamService(ApplicationDbContext context)
@@ -20,7 +20,7 @@ namespace DAFwebAPI.Services.Team
         {
             try
             {
-                var id = Guid.NewGuid();
+                
                 var mediaPath = "";
                 
 
@@ -30,17 +30,18 @@ namespace DAFwebAPI.Services.Team
                     var image = team.ImagePath;
                     var photoinfo = new FileInfo(Path.GetFileName(image.FileName));
                     var fileExtension = photoinfo.Extension;
-                    var savingPath = Path.Combine(Path.GetDirectoryName("./Assets/Team_upload_photo/"), id.ToString() + fileExtension);
+                    var savingPath = Path.Combine(Path.GetDirectoryName("./Assets/Team_upload_photo/"), team.ID.ToString() + fileExtension);
 
 
 
                     await image.SaveAsAsync(savingPath);
-                    mediaPath = "Assets/Team_upload_photo/" + id.ToString() + fileExtension;
+                    mediaPath = "Assets/Team_upload_photo/" + team.ID + fileExtension;
                 }
 
 
                 Teams teams = new Teams()
                 {
+                  
                     Name = team.Name,
                     Position = team.Position,
                     ImagePath = mediaPath,
@@ -91,12 +92,12 @@ namespace DAFwebAPI.Services.Team
 
 
                     await image.SaveAsAsync(savingPath);
-                    teams.ImagePath = "Assets/Team_upload_photo/" + team.ID.ToString() + fileExtension;
+                    teams.ImagePath = "Assets/Team_upload_photo/" + team.ID + fileExtension;
                 }
 
                 
 
-                _context.Trainings.Update(teams);
+                _context.Teams.Update(teams);
                 _context.SaveChanges();
 
 

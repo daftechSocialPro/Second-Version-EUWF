@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAFwebAPI.Services.Training
 {
-    public class TrainingService
+    public class TrainingService : ITrainingService
     {
         private readonly ApplicationDbContext _context;
         public TrainingService(ApplicationDbContext context)
@@ -21,7 +21,7 @@ namespace DAFwebAPI.Services.Training
         {
             try
             {
-                var id = Guid.NewGuid();
+                
                 var mediaPath = "";
                 var filePath = "";
 
@@ -31,12 +31,12 @@ namespace DAFwebAPI.Services.Training
                     var image = training.MediaPath;
                     var photoinfo = new FileInfo(Path.GetFileName(image.FileName));
                     var fileExtension = photoinfo.Extension;
-                    var savingPath = Path.Combine(Path.GetDirectoryName("./Assets/Training_upload_media/"), id.ToString() + fileExtension);
+                    var savingPath = Path.Combine(Path.GetDirectoryName("./Assets/Training_upload_media/"), training.ID.ToString() + fileExtension);
 
 
 
                     await image.SaveAsAsync(savingPath);
-                    mediaPath = "Assets/Training_upload_media/" + id.ToString() + fileExtension;
+                    mediaPath = "Assets/Training_upload_media/" + training.ID + fileExtension;
                 }
 
                 if (training.FilePath != null)
@@ -44,16 +44,17 @@ namespace DAFwebAPI.Services.Training
                     var image = training.FilePath;
                     var photoinfo = new FileInfo(Path.GetFileName(image.FileName));
                     var fileExtension = photoinfo.Extension;
-                    var savingPath = Path.Combine(Path.GetDirectoryName("./Assets/Training_upload_file/"), id.ToString() + fileExtension);
+                    var savingPath = Path.Combine(Path.GetDirectoryName("./Assets/Training_upload_file/"), training.ID.ToString() + fileExtension);
 
 
 
                     await image.SaveAsAsync(savingPath);
-                    filePath = "Assets/Training_upload_file/" + id.ToString() + fileExtension;
+                    filePath = "Assets/Training_upload_file/" + training.ID + fileExtension;
                 }
 
                 Trainings train = new Trainings()
                 {
+                    
                     Title = training.Title,
                     Description = training.Description,
                     MediaPath = mediaPath,
@@ -105,7 +106,7 @@ namespace DAFwebAPI.Services.Training
 
 
                     await image.SaveAsAsync(savingPath);
-                    train.MediaPath = "Assets/Research_upload_photo/" + training.ID.ToString() + fileExtension;
+                    train.MediaPath = "Assets/Research_upload_photo/" + training.ID + fileExtension;
                 }
 
                 if (training.FilePath != null)
@@ -118,7 +119,7 @@ namespace DAFwebAPI.Services.Training
 
 
                     await image.SaveAsAsync(savingPath);
-                    train.FilePath = "Assets/Research_upload_photo/" + training.ID.ToString() + fileExtension;
+                    train.FilePath = "Assets/Research_upload_photo/" + training.ID + fileExtension;
                 }
 
                 _context.Trainings.Update(train);

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1KmQDYt4/EeumnJra+PP5TUG+02KwTKMplcX9/2FFke6iOLb1Pk6B5MlnD8J0PtbkP7Ov8C9TqAZCoN+jIcvHw==",
+  "dgSpecHash": "1sWz9WPN1JXCr/CPLVzvbbBgTe85opDuJP01lGIdE7btncw+ov0tuR4KqZXV1h6rKDJBi9UejtzBlVLwy80fYw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Naol\\Source\\Repos\\Second-Version-EUWF\\API\\DAFwebAPI.csproj",
   "expectedPackageFiles": [
@@ -113,7 +113,11 @@
     "C:\\Users\\Naol\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Naol\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Naol\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Naol\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\Naol\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\Naol\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.23\\microsoft.windowsdesktop.app.ref.6.0.23.nupkg.sha512",
+    "C:\\Users\\Naol\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.23\\microsoft.netcore.app.ref.6.0.23.nupkg.sha512",
+    "C:\\Users\\Naol\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.23\\microsoft.aspnetcore.app.ref.6.0.23.nupkg.sha512",
+    "C:\\Users\\Naol\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.23\\microsoft.netcore.app.host.win-x64.6.0.23.nupkg.sha512"
   ],
   "logs": []
 }

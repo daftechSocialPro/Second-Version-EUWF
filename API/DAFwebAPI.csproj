@@ -30,6 +30,7 @@
     <Folder Include="Assets\member_upload_photo\" />
     <Folder Include="Assets\Forum_upload_photo\" />
     <Folder Include="Assets\Brosher_file\" />
+    <Folder Include="Assets\Gallery_upload_photo\" />
     <Folder Include="Assets\Team_upload_photo\" />
     <Folder Include="Assets\Training_upload_file\" />
     <Folder Include="Assets\Training_upload_media\" />
