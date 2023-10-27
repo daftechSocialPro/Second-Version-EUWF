@@ -5,10 +5,13 @@
 using DAFwebAPI.Services.Contact;
 using DAFwebAPI.Services.Dashborad;
 using DAFwebAPI.Services.Forum;
+using DAFwebAPI.Services.Gallery;
 using DAFwebAPI.Services.Question;
 using DAFwebAPI.Services.Questioner;
 using DAFwebAPI.Services.RegionalFederation;
 using DAFwebAPI.Services.Sponsor;
+using DAFwebAPI.Services.Team;
+using DAFwebAPI.Services.Training;
 using DAFwebAPI.Services.Vaccancy;
 using DAFwebAPI.Services.WaterUtility;
 
@@ -45,6 +48,11 @@ namespace DAFwebAPI.Services
         ISubscriberServices subscriberService { get; }
 
         IVaccancyRepository vaccancyRepository { get; }
+
+        ITrainingService trainingService { get; }
+        ITeamService teamService { get; }
+        IGalleryService galleryService { get; }
+        
 
         Task SaveChanges();
     }

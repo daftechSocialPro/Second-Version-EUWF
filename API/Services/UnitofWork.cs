@@ -3,6 +3,7 @@ using DAFwebAPI.Data;
 using DAFwebAPI.Services.Contact;
 using DAFwebAPI.Services.Dashborad;
 using DAFwebAPI.Services.Forum;
+using DAFwebAPI.Services.Gallery;
 using DAFwebAPI.Services.News;
 using DAFwebAPI.Services.Question;
 using DAFwebAPI.Services.Questioner;
@@ -10,6 +11,8 @@ using DAFwebAPI.Services.Region;
 using DAFwebAPI.Services.RegionalFederation;
 using DAFwebAPI.Services.Research;
 using DAFwebAPI.Services.Sponsor;
+using DAFwebAPI.Services.Team;
+using DAFwebAPI.Services.Training;
 using DAFwebAPI.Services.Vaccancy;
 using DAFwebAPI.Services.WaterUtility;
 
@@ -38,6 +41,9 @@ namespace DAFwebAPI.Services
             forumRepository= new ForumRepository(db);
             subscriberService= new SubscriberService(db);
             vaccancyRepository= new VaccancyRepository(db);
+            trainingService= new TrainingService(db);
+            teamService= new TeamService(db);
+            galleryService = new GalleryService(db);
 
 
         }
@@ -71,6 +77,9 @@ namespace DAFwebAPI.Services
         public ISubscriberServices subscriberService { get;set;}
         
         public IVaccancyRepository vaccancyRepository { get;set;}
+        public ITrainingService trainingService { get;set;}
+        public ITeamService teamService { get;set;}
+        public IGalleryService galleryService { get;set;}
         public async Task SaveChanges()
         {
             try

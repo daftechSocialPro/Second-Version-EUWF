@@ -45,6 +45,9 @@ namespace DAFwebAPI.Data
         public DbSet<Subscriber> Subscribers { get; set; }
 
         public DbSet<Choices> Choices { get; set; }
+        public DbSet<Trainings> Trainings { get; set; }
+        public DbSet<Teams> Teams { get; set; }
+        public DbSet<Gallery> Galleries { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
