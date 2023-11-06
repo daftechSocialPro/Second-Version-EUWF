@@ -33,6 +33,7 @@ export default function ResearchCreate({ user, setIsLodding }) {
   const [amharicTitle, setAmharicTitle] = useState('')
 
   const [publishedAt, setPublishedAt] = useState('')
+  const jwt = sessionStorage.getItem('jwt')
 
   const navigate = useNavigate()
 
@@ -70,7 +71,7 @@ export default function ResearchCreate({ user, setIsLodding }) {
       setIsLodding(true)
       axios.defaults.withCredentials = true
       axios
-        .post(urlresearch, formData)
+        .post(`${urlresearch}?jwt=${jwt}`, formData)
         .then((res) => {
           setIsLodding(false)
           navigate('/research')

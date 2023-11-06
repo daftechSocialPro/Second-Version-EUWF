@@ -39,20 +39,23 @@ function News({ user ,setIsLodding }) {
   const [visibleXL, setVisibleXL] = useState(false)
   const [ne, setNe] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
-  //const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false);
+
+  const jwt =sessionStorage.getItem('jwt')
+  
 
   const handleToggle = (item) => {
     
-   // setToggle(!toggle);
+   setToggle(!toggle);
    handleSubmit(item)
   
   };
 
   const handleSubmit = async (item) => {      
     setIsLodding(true)  
-    //event.preventDefault()  
+    event.preventDefault()  
     const formData = new FormData();  
-    //formData.append("Photo", img);
+    formData.append("Photo", item.img);
     formData.set("title", item.title);
     formData.set("subTitle", item.subTitle);
     formData.set("description", item.description);
@@ -62,7 +65,7 @@ function News({ user ,setIsLodding }) {
  
     try {
 
-      await axios.put(urlNews, formData).
+      await axios.put(`${urlNews}?jwt=${jwt}`, formData).
       then((res) => {
         setIsLodding(false)
        
@@ -109,12 +112,12 @@ function News({ user ,setIsLodding }) {
 
   const getNews = () => {
     axios
-      .get(urlNews)
+      .get(`${urlNews}?jwt=${jwt}`)
       .then((res) => {
         user.userRole === 1
           ? setNews(res.data.filter((x) => x.userId === user.id))
           : setNews(res.data)
-          console.log(res.data)
+          console.log("news data",res.data)
       })
       .catch((err) => console.error(err))
   }

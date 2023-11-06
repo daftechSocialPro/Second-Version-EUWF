@@ -106,7 +106,7 @@ namespace DAFwebAPI.Services.Training
 
 
                     await image.SaveAsAsync(savingPath);
-                    train.MediaPath = "Assets/Research_upload_photo/" + training.ID + fileExtension;
+                    train.MediaPath = "Assets/Training_upload_media/" + training.ID + fileExtension;
                 }
 
                 if (training.FilePath != null)

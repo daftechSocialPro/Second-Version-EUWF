@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 function Footer() {
   return (
-    <footer className="site-footer" style={{backgroundImage: "url(/assets/images/backgrounds/footer-bg-1-1.jpg)"}}>
+    <footer className="site-footer" style={{backgroundImage: "url(/assets/images/footer1.jpg)"}}>
     <div className="site-footer__top">
       <div className="container">
         <div className="row">

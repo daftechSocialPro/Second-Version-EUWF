@@ -1,19 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next'
-
-
+import { assetUrl,urlGallery } from "../endpoints";
+import axios from "axios";
 import './gallery.css'
 function Gallery() {
   const { t } = useTranslation()
-  const images = [
-    '/assets/images/back11.jpg',
-    '/assets/images/back11.jpg',
-    '/assets/images/back11.jpg',
-    '/assets/images/back11.jpg',
-    '/assets/images/back11.jpg',
-   
-    // Add more image paths here
-  ];
+  const [gallery, setGallery] = useState([]);
+  const [touchedImage, setTouchedImage] = useState(null);
+
+  const handleImageTouch = (title) => {
+    setTouchedImage(title);
+  };
+  const getImage = (item) => {
+    return `${assetUrl}/${item}`;
+  };
+  useEffect(()=>{
+    axios
+    .get(urlGallery)
+    .then((res) => {
+      setGallery(res.data);
+      console.log('setGallery', res.data)
+    })
+    .catch((err) => console.error(err));
+  },[])
   return (
     <>
       <section
@@ -34,10 +43,17 @@ function Gallery() {
         </div>
       </section>
       <section className="secc">
-      <div className="gallery">
-      {images.map((image, index) => (
-        <div key={index} className="gallery-item">
-          <img id={"imgid"}src={image} alt={`Image ${index + 1}`}  />
+           <div className="gallery">
+      {gallery.map((image, index) => (
+        <div
+          key={index}
+          className="gallery-item"
+          onClick={() => handleImageTouch(image.title)}
+        >
+          <img src={getImage(image.imagePath)} alt="" />
+          {image.title === touchedImage && (
+            <div className="title-overlay">{image.title}</div>
+          )}
         </div>
       ))}
     </div>

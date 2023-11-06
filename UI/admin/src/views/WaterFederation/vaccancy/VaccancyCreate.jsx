@@ -31,7 +31,7 @@ export default function VaccancyCreate({ user,setIsLodding }) {
   const [amharicDescription, setAmharicDescription] = useState('')
   const [company, setCompany] = useState('')
   const [email, setEmail] = useState('')
- 
+  const jwt = sessionStorage.getItem('jwt')
 
 
   const navigate = useNavigate()
@@ -64,7 +64,7 @@ export default function VaccancyCreate({ user,setIsLodding }) {
       setIsLodding(true)
       axios.defaults.withCredentials = true
       axios
-        .post(urlVaccancy, formData)
+        .post(`${urlVaccancy}?jwt=${jwt}`, formData)
         .then((res) => {
           setIsLodding(false)
           navigate('/vaccancy')

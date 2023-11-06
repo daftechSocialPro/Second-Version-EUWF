@@ -475,7 +475,7 @@ function Home() {
                   <div className="item" key={index}>
                     <div className="donations-card">
                       <div className="donations-card__image">
-                        <img src={getImage(item.img)} alt="" />
+                        <img src={getImage(item.img)} alt="" style={{width:"355px", height:"300px"}}/>
                         <div className="donations-card__category">
                           <a onClick={()=>navigateForumDetial(item,forum)} >
                             {item.isForumEvent === 1 ? "Events" : "Forums"}
@@ -556,8 +556,8 @@ function Home() {
               {news.map((item, index) => {
                 return (<div key={index} className="item">
                   <div className="blog-card">
-                    <div className="blog-card__image">
-                      <img src={getImage(item.img)} alt="" />
+                    <div className="blog-card__image" >
+                      <img src={getImage(item.img)} alt=""  style={{width:"355px", height:"300px"}}/>
                       <div className="blog-card__date">
                         <span>{dateformat(item.createdAt, "d")}</span>{dateformat(item.createdAt, "mmm")}
                       </div>
@@ -568,11 +568,7 @@ function Home() {
                           <i className="fa fa-user"></i>
                           <a onClick={()=>navigateNewsDetial(item)} >{item.waterFederation.fullName}</a>
                         </li>
-                        {/* <li>
-                          <i className="fa fa-comments"></i>
-                          <a href="#">02 comments</a>
-                        </li> */}
-                      </ul>
+                        </ul>
                       <h3 className="blog-card__title">
                         <a onClick={()=>navigateNewsDetial(item)} >{item.title}</a>
                       </h3>

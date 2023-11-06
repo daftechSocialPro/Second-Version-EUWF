@@ -28,6 +28,7 @@ export default function BoarderMemberCreate({ user,setIsLodding }) {
   const [fullName, setFullName] = useState('')
   const [position, setPosition] = useState('')
   const [birthDate, setBirthDate] = useState('')
+  const jwt = sessionStorage.getItem('jwt')
 
 
   const navigate = useNavigate()
@@ -62,7 +63,7 @@ export default function BoarderMemberCreate({ user,setIsLodding }) {
       setIsLodding(true)
       axios.defaults.withCredentials = true
       axios
-        .post(urlboardmember, formData)
+        .post(`${urlboardmember}?jwt=${jwt}`, formData)
         .then((res) => {
           setIsLodding(false)
           navigate('/boardmember')

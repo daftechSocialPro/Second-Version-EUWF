@@ -124,7 +124,7 @@ function About() {
             </div>
             <div className="col-md-12 col-lg-4" style={{marginTop:"150px"}}>
               <div className="sec-title">
-                <h2 className="sec-title__title" style={{fontSize:"40px"}}>MISSION</h2>
+                <h2 className="sec-title__title">OUR MISSION</h2>
               </div>
               <p className="donation-two__text">
                 To become the first and competent association in east Africa by
@@ -136,7 +136,7 @@ function About() {
             </div>
             <div className="col-md-12 col-lg-4" style={{marginTop:"200px"}}>
               <div className="sec-title">
-                <h2 className="sec-title__title" style={{fontSize:"40px"}}>MOTTO</h2>
+                <h2 className="sec-title__title" >OUR MOTTO</h2>
               </div>
               <p className="donation-two__text">
                 To become the first and competent association in east Africa by

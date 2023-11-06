@@ -27,18 +27,20 @@ function App () {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user,setUser]=useState([])
   const [isLoading,setIsLodding]=useState(false)
-  
-
+ 
 
 
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get(`${urlusers}/user`).then((res) => {
+    const jwt = sessionStorage.getItem("jwt")
+    if(jwt){
+    axios.get(`${urlusers}/user?jwt=${jwt}`).then((res) => {
       setUser(res.data)
       setIsLoggedIn(true)
 
     })
+  }
  
   }, [isLoggedIn]);
 

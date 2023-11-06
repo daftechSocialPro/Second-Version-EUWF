@@ -21,7 +21,7 @@ import './vacancy.css'
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     
     [`&.${tableCellClasses.head}`]: {
-        backgroundColor: "#183763",
+        backgroundColor: "rgba(3, 194, 255)",
         color: theme.palette.common.white,
     },
     [`&.${tableCellClasses.body}`]: {
@@ -50,10 +50,10 @@ export default function WaterUtilitys() {
     
       const navigateWaterUtilityDetial =(item, itemlist)=>{
 
-        navigate('/waterutility/detail',{
+        navigate('detail',{
           state :{
             waterUtility: item,
-           waterUtilityList: itemlist
+            waterUtilityList: itemlist
           }
         }
         )
@@ -161,12 +161,12 @@ export default function WaterUtilitys() {
         <>
             <section
                 className="page-header"
-                style={{ backgroundImage: "url(/assets/images/backgrounds/1.jpeg)" }}
+                style={{ backgroundImage: "url(/assets/images/back11.jpg)" }}
             >
                 <div className="container">
                     <ul className="list-unstyled breadcrumb-one">
                         <li>
-                            <a href="index.html">{t("home.1")}</a>
+                            <a href="index.html">Team</a>
                         </li>
                         <li>
                             <span>{t("memberutilites.1")}</span>
@@ -182,7 +182,7 @@ export default function WaterUtilitys() {
                 <Paper sx={{ width: '100%', overflow: 'hidden' }}>
                     <TableContainer sx={{ maxHeight: 440 }}>
                         <Table stickyHeader aria-label="sticky table">
-                            <TableHead>
+                            <TableHead style={{background:'rgba(3, 194, 255, 0.4)'}}>
                                 <StyledTableRow>
                                     {columns.map((column) => (
                                         <StyledTableCell

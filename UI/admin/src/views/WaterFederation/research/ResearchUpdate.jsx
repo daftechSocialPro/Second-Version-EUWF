@@ -41,6 +41,7 @@ function ResearchUpdate({ user, setIsLodding }) {
   const [amharicTitle, setAmharicTitle] = useState(research.amharicTitle)
 
   const [publishedAt, setPublishedAt] = useState(research.publishedAt.toString('yyyy-mm-dd'))
+  const jwt = sessionStorage.getItem('jwt')
 
 
   console.log("published at",publishedAt)
@@ -91,7 +92,7 @@ else{
       setIsLodding(true)
       axios.defaults.withCredentials = true
       axios
-        .put(urlresearch, formData)
+        .put(`${urlresearch}?jwt=${jwt}`, formData)
         .then((res) => {
           setIsLodding(false)
           navigate('/research')

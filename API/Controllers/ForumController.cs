@@ -36,13 +36,13 @@ namespace DAFwebAPI.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromForm] Forum Forum)
+        public async Task<ActionResult> Post([FromForm] Forum Forum, string jwt)
         {
 
             try
             {
 
-                var jwt = Request.Cookies["jwt"];
+               
                 var token = _jwtService.verify(jwt);
                 Guid userId = Guid.Parse(token.Issuer);
                 var user = _unitofwork.userRepository.GetById(userId);
@@ -82,14 +82,13 @@ namespace DAFwebAPI.Controllers
 
         [HttpPut]
 
-        public async Task<ActionResult> Update([FromForm] Forum Forum)
+        public async Task<ActionResult> Update([FromForm] Forum Forum, string jwt)
         {
 
 
             try
             {
 
-                var jwt = Request.Cookies["jwt"];
                 var token = _jwtService.verify(jwt);
                 Guid userId = Guid.Parse(token.Issuer);
 

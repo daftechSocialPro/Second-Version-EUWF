@@ -188,9 +188,9 @@ console.log(filterdList,"filter list")
          <div key={index} className="col-sm-12 col-md-6 col-lg-8">
     
                 <div className="blog-details__content clearfix">
-                  <div className="blog-details__image">
-                    <img src={getImage(item.img)} alt="" />
-                    <div className="blog-card__date">
+                  <div className="blog-details__image" >
+                    <img src={getImage(item.img)} alt=""  />
+                    <div className="blog-card__date" style={{marginRight:"100px"}}>
                       <span>{dateformat(item.createdAt, "d")}</span>{dateformat(item.createdAt, "mmm")}
                     </div>
                   </div>
@@ -212,7 +212,7 @@ console.log(filterdList,"filter list")
                 </div>
               </div>
             )}
-              <div className="col-lg-4"  style={{marginTop:"-600px", padding:" 0px 40px"}}>
+              <div className="col-lg-4"  style={{marginTop:"-700px", padding:" 0px 50px"}}>
               <div className="sidebar mb-4">
                 <div className="sidebar__single sidebar__single--search">
                   <form action="#">
@@ -233,10 +233,6 @@ console.log(filterdList,"filter list")
                             src={getImage(item.img)}
                             alt=""
                           />
-                          {/* <span className="sidebar__post__meta">
-                            <i className="fa fa-comments"></i>
-                            02 comments
-                          </span> */}
                           <span className="sidebar__post__title">{item.title}</span>
                         </a>
                       </li>
@@ -244,31 +240,11 @@ console.log(filterdList,"filter list")
                   </ul>
                 </div>
               </div>
-{/* 
-              {sponser.slice(0, 2).map((item, index) => {
-              return (
-                <div className="item containerr" key={index}  style={{marginLeft:"25%"}}   >
-                  <img className="imgg" style={{width:"100%"}} src={getImage(item.logo)} alt="" />
-                  <div class="overlay"><div class="buttonn"><a href={getImage(item.brocherPath)} target="_blank"> View Brocher </a></div></div>
-                
-                </div>
-              )
-            })} */}
             </div>
-
-
-          </div>
+         </div>
         </div>
       </section>
-   
-
-    
-
-    
-
-
-
-      <section className="sec-pad-top sec-pad-bottom sponsor-carousel sponsor-carousel--home-2">
+       <section className="sec-pad-top sec-pad-bottom sponsor-carousel sponsor-carousel--home-2">
         <div className="container">
         {partenerShip.length && <OwlCarousel className="owl-theme " {...option6}>
           {partenerShip.map((item,index)=>{
@@ -279,8 +255,7 @@ console.log(filterdList,"filter list")
               )
             })}
             
-
-          </OwlCarousel>}
+         </OwlCarousel>}
         </div>
       </section>
 

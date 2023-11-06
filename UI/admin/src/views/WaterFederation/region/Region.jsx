@@ -32,10 +32,11 @@ function Region({ setIsLodding }) {
   const [selectedRegion, setSelectedRegion] = useState([])
   const [regionName, setRegionName] = useState('')
   const [regions, setRegions] = useState([])
+  const jwt = sessionStorage.getItem('jwt')
 
   useEffect(() => {
     axios
-      .get(urlRegion)
+      .get(`${urlRegion}?jwt=${jwt}`)
       .then((res) => setRegions(res.data))
       .catch((err) => console.error(err))
   }, [addvisibleXL, updatevisibleXL])
@@ -56,7 +57,7 @@ function Region({ setIsLodding }) {
       setIsLodding(true)
       axios.defaults.withCredentials = true
       axios
-        .post(urlRegion, formData)
+        .post(`${urlRegion}?jwt=${jwt}`, formData)
         .then((res) => {
           setIsLodding(false)
           setAddVisibleXL(false)
@@ -94,7 +95,7 @@ function Region({ setIsLodding }) {
       setIsLodding(true)
       axios.defaults.withCredentials = true
       axios
-        .put(urlRegion, formData)
+        .put(`${urlRegion}?jwt=${jwt}`, formData)
         .then((res) => {
           setIsLodding(false)
           setUpdateVisibleXL(false)

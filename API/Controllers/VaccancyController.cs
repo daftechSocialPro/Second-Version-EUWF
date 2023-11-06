@@ -27,10 +27,10 @@ namespace DAFwebAPI.Controllers
 
         [HttpGet]
 
-        public async Task<ActionResult<List<Vaccancy>>> Get()
+        public async Task<ActionResult<List<Vaccancy>>> Get(string jwt)
         {
             Guid userId = Guid.NewGuid();
-            var jwt = Request.Cookies["jwt"];
+           
             if (jwt != null)
             {
                 var token = _jwtService.verify(jwt);
@@ -48,13 +48,13 @@ namespace DAFwebAPI.Controllers
         [HttpPost]
 
 
-        public async Task<ActionResult> Post([FromForm] Vaccancy vaccancy)
+        public async Task<ActionResult> Post([FromForm] Vaccancy vaccancy, string jwt)
         {
 
             try
             {
 
-                var jwt = Request.Cookies["jwt"];
+                
                 var token = _jwtService.verify(jwt);
                 Guid userId = Guid.Parse(token.Issuer);
 
@@ -83,14 +83,14 @@ namespace DAFwebAPI.Controllers
 
 
         [HttpPut]
-        public async Task<ActionResult> Update([FromForm] Vaccancy vaccancy)
+        public async Task<ActionResult> Update([FromForm] Vaccancy vaccancy, string jwt)
         {
 
 
             try
             {
 
-                var jwt = Request.Cookies["jwt"];
+    
                 var token = _jwtService.verify(jwt);
                 Guid userId = Guid.Parse(token.Issuer);
 

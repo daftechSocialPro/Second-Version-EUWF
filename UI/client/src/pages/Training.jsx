@@ -1,28 +1,42 @@
 import React, { useState, useEffect } from "react";
-import OwlCarousel from "react-owl-carousel";
-import { urlSponsor, assetUrl } from "../endpoints";
-import { OrganizationChart } from "primereact/organizationchart";
-import { useTranslation } from "react-i18next";
-import { urlContact } from "../endpoints";
+import { assetUrl, urlTraining } from "../endpoints";
 import axios from "axios";
-
+import { useTranslation } from "react-i18next";
 import "./training.css";
-function About() {
-  const [contact, setContact] = useState([]);
+
+function Training() {
+  const [training, setTraining] = useState([]);
 
   useEffect(() => {
     axios
-      .get(urlContact)
+      .get(urlTraining)
       .then((res) => {
-        console.log(res.data);
-        setContact(res.data);
+        console.log(res.data, "training");
+        setTraining(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
+
   const getImage = (item) => {
     return `${assetUrl}/${item}`;
   };
-  const { t } = useTranslation();
+
+  const getVideo = (item) => {
+    return `${assetUrl}/${item}`;
+  };
+
+  const isImage = (path) => {
+    const imageExtensions = [".jpg", ".jpeg", ".png", ".gif"];
+    const extension = path.substring(path.lastIndexOf(".")).toLowerCase();
+    return imageExtensions.includes(extension);
+  };
+
+  const handleDownload = (filePath, isImage) => {
+    const link = document.createElement("a");
+    link.href = `${assetUrl}/${filePath}`;
+    link.download = isImage ? filePath.substring(filePath.lastIndexOf("/") + 1) : "Download";
+    link.click();
+  };
 
   return (
     <>
@@ -44,112 +58,40 @@ function About() {
         </div>
       </section>
       <section className="sec-pad-top sec-pad-bottom about-one">
-        {/* <div className="containerrr">
-          <div className="columnnn">
-            <img src="/assets/images/back11.jpg" className="imgg" alt="Image" />
-            <video src="path/to/video.mp4" className="vidd" controls></video>
-          </div>
-          <div className="columnnn">
-            <h2 className="title">Title</h2>
-            <p className="para">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="path/to/pdf.pdf" className="apdf" download>
-              Download PDF
-            </a>
-          </div>
-        </div> */}
         <div className="tutorial">
-          <div class="card">
-            <div class="card-header">HTML Tutorial</div>
-            <div class="card-content">
-              <p>This tutorial covers the basics of HTML.</p>
+          {training.map((train, index) => (
+            <div className="card" key={index}>
+              <div className="card-header">{train.title}</div>
+              <div className="card-content">
+                <div dangerouslySetInnerHTML={{ __html: train.description }}></div>
+              </div>
+              <div className="video-container">
+                {train.mediaPath && isImage(train.mediaPath) ? (
+                  <img src={getImage(train.mediaPath)} alt="" />
+                ) : (
+                  <video
+                    src={getVideo(train.mediaPath)}
+                    controls
+                    autoPlay
+                    width={300} 
+                    height={160} 
+                  ></video>
+                )}
+              </div>
+              <div className="card-footer">
+                <button
+                  className="download-link "
+                  onClick={() => handleDownload(train.mediaPath, isImage(train.mediaPath))}
+                >
+                  Download
+                </button>
+              </div>
             </div>
-            <div class="video-container">
-              <iframe
-                src="https://www.youtube.com/embed/VIDEO_ID"
-                frameborder="0"
-                allowfullscreen
-              ></iframe>
-              <img src="path/to/html_tutorial_image.jpg" alt="HTML Tutorial" />
-            </div>
-            <div class="card-footer">
-              <a
-                class="download-link"
-                href="path/to/html_tutorial.pdf"
-                download
-              >
-                Download PDF
-              </a>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">CSS Tutorial</div>
-            <div class="card-content">
-              <p>This tutorial covers the basics of CSS.</p>
-            </div>
-            <div class="video-container">
-              <iframe
-                src="https://www.youtube.com/embed/VIDEO_ID"
-                frameborder="0"
-                allowfullscreen
-              ></iframe>
-              <img src="path/to/css_tutorial_image.jpg" alt="CSS Tutorial" />
-            </div>
-            <div class="card-footer">
-              <a class="download-link" href="path/to/css_tutorial.pdf" download>
-                Download PDF
-              </a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header">HTML Tutorial</div>
-            <div class="card-content">
-              <p>This tutorial covers the basics of HTML.</p>
-            </div>
-            <div class="video-container">
-              <iframe
-                src="https://www.youtube.com/embed/VIDEO_ID"
-                frameborder="0"
-                allowfullscreen
-              ></iframe>
-              <img src="path/to/html_tutorial_image.jpg" alt="HTML Tutorial" />
-            </div>
-            <div class="card-footer">
-              <a
-                class="download-link"
-                href="path/to/html_tutorial.pdf"
-                download
-              >
-                Download PDF
-              </a>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">CSS Tutorial</div>
-            <div class="card-content">
-              <p>This tutorial covers the basics of CSS.</p>
-            </div>
-            <div class="video-container">
-              <iframe
-                src="https://www.youtube.com/embed/VIDEO_ID"
-                frameborder="0"
-                allowfullscreen
-              ></iframe>
-              <img src="path/to/css_tutorial_image.jpg" alt="CSS Tutorial" />
-            </div>
-            <div class="card-footer">
-              <a class="download-link" href="path/to/css_tutorial.pdf" download>
-                Download PDF
-              </a>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
     </>
   );
 }
 
-export default About;
+export default Training;

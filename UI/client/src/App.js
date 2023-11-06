@@ -22,6 +22,8 @@ import Portfolio from "./pages/MemberProfile"
 import Gallery from "./pages/Gallary"
 import EventNews from "./pages/NewEvents"
 import Climet from "./pages/Climet"
+import WaterUtility from "./pages/WaterUtility"
+import WaterUtilityDetail from "./pages/WaterUtilityDetail"
 function App() {
   return (
     <BrowserRouter>
@@ -35,7 +37,8 @@ function App() {
           <Route path="events" element={<Events/>} />
           <Route path="training" element={<Training/>} />
           <Route path="services" element={<Service/>} />
-          <Route path="utility"  element={<BoardMembers/>} />
+          <Route path="utility"  element={<WaterUtility/>} />
+          <Route path="utility/detail"  element={<WaterUtilityDetail/>} />
           <Route path = "contact" element= {<Contact/>} />
           <Route path="news" element={<News/>} />
           <Route path="news/detail" element={<NewsDetail/>} />

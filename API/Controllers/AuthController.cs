@@ -64,13 +64,11 @@ namespace DAFwebAPI.Controllers
 
             var jwt = _jwtService.Generate(user.ID);
 
-            Response.Cookies.Append("jwt", jwt, new CookieOptions
-            {
-                HttpOnly = true
-            });
+          
 
             return Ok(new
             {
+                jwt=jwt,
                 message = "success"
             });
 
@@ -79,13 +77,13 @@ namespace DAFwebAPI.Controllers
         }
 
         [HttpGet("user")]
-        public new IActionResult User()
+        public new IActionResult User(string jwt)
         {
 
 
             try
             {
-                var jwt = Request.Cookies["jwt"];
+                
 
                 var token = _jwtService.verify(jwt);
 

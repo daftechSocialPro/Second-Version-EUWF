@@ -35,6 +35,7 @@ function NewsCreate({setIsLodding}) {
   const [title, setTitle] = useState('');
   const [subTitle, setSUbTitle] = useState('');
   const [img, setImg] = useState('');
+  const jwt = sessionStorage.getItem('jwt')
 
 
 
@@ -66,8 +67,8 @@ function NewsCreate({setIsLodding}) {
     }
     try {
 
-      await axios.post(urlNews, formData).
-      then((res) => {
+      await axios.post(`${urlNews}?jwt=${jwt}`, formData)
+      .then((res) => {
         setIsLodding(false)
         setTitle('')
         setDescription('')

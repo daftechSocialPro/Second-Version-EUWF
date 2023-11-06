@@ -56,10 +56,11 @@ function Questioner({ setIsLodding }) {
   const questionerStatus = ['Inactive', 'Active', 'Closed']
 
   const [Questioners, setQuestioners] = useState([])
+  const jwt = sessionStorage.getItem('jwt')
 
   useEffect(() => {
     axios
-      .get(urlQuestioner)
+      .get(`${urlQuestioner}?jwt=${jwt}`)
       .then((res) => setQuestioners(res.data))
       .catch((err) => console.error(err))
   }, [addvisibleXL, updatevisibleXL])
@@ -83,7 +84,7 @@ function Questioner({ setIsLodding }) {
       setIsLodding(true)
       axios.defaults.withCredentials = true
       axios
-        .post(urlQuestioner, formData)
+        .post(`${urlQuestioner}?jwt=${jwt}`, formData)
         .then((res) => {
           setIsLodding(false)
           setAddVisibleXL(false)
@@ -124,7 +125,7 @@ function Questioner({ setIsLodding }) {
       setIsLodding(true)
       axios.defaults.withCredentials = true
       axios
-        .put(urlQuestioner, formData)
+        .put(`${urlQuestioner}?jwt=${jwt}`, formData)
         .then((res) => {
           setIsLodding(false)
           setUpdateVisibleXL(false)

@@ -40,6 +40,7 @@ function ForumEdit({setIsLodding}) {
     const [title, setTitle] = useState(Forum.title);
     const [isforumEvent, setIsForumEvent] = useState(Forum.isForumEvent)
     const [img, setImg] = useState('');
+    const jwt = sessionStorage.getItem('jwt')
     
   
   
@@ -66,7 +67,8 @@ function ForumEdit({setIsLodding}) {
       }
       try {
   
-        await axios.put(urlForum, formData).
+        await axios.put(`${urlForum}?jwt=${jwt}`, formData).
+        
         then((res) => {
           setIsLodding(false)
           setTitle('')

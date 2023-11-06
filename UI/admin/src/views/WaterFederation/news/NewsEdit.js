@@ -40,6 +40,7 @@ function NewsEdit({setIsLodding}) {
     const [subTitle, setSUbTitle] = useState(news.subTitle);
     const [img, setImg] = useState('');
     const [isActive,setIsActive] =useState(news.isHeadLine)
+    const jwt = sessionStorage.getItem('jwt')
   
   
     const photoInputHandler = (event) => {
@@ -65,7 +66,7 @@ function NewsEdit({setIsLodding}) {
       }
       try {
   
-        await axios.put(urlNews, formData).
+        await axios.put(`${urlNews}?jwt=${jwt}`, formData).
         then((res) => {
           setIsLodding(false)
           setTitle('')

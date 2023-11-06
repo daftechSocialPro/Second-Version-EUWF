@@ -45,7 +45,7 @@ export default function RegionalFederationCreate({ user, setIsLodding }) {
   const photoInputHandler = (event) => {
     setImg(event.target.files[0])
   }
-
+  const jwt = sessionStorage.getItem('jwt')
   const handleSubmit = async (event) => {
     event.preventDefault()
 
@@ -68,7 +68,7 @@ export default function RegionalFederationCreate({ user, setIsLodding }) {
       setIsLodding(true)
       axios.defaults.withCredentials = true
       axios
-        .post(urlRegionalFederation, formData)
+        .post(`${urlRegionalFederation}?jwt=${jwt}`, formData)
         .then((res) => {
           setIsLodding(false)
           navigate('/regionalwaterfederation')

@@ -46,6 +46,7 @@ function Vaccancys({ user ,setIsLodding }) {
    handleSubmit(item)
   
   };
+  const jwt = sessionStorage.getItem('jwt')
 
   const handleSubmit = async (item) => {      
     setIsLodding(true)  
@@ -110,7 +111,7 @@ function Vaccancys({ user ,setIsLodding }) {
 
   const getVaccancys = () => {
     axios
-      .get(urlVaccancy)
+      .get(`${urlVaccancy}?jwt=${jwt}`)
       .then((res) => {
         console.log(res.data)
        setVaccancys(res.data)

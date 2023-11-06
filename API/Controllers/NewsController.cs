@@ -27,10 +27,10 @@ namespace DAFwebAPI.Controllers
            
         }
         [HttpGet]
-        public async Task<ActionResult<List<News>>> Get()
+        public async Task<ActionResult<List<News>>> Get(string jwt)
         {
             Guid userId = Guid.NewGuid();
-            var jwt = Request.Cookies["jwt"];
+          
             if (jwt != null)
             {
                 var token = _jwtService.verify(jwt);
@@ -47,13 +47,13 @@ namespace DAFwebAPI.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromForm] News news)
+        public async Task<ActionResult> Post([FromForm] News news, string jwt)
         {
 
             try
             {
 
-                var jwt = Request.Cookies["jwt"];
+        
                 var token = _jwtService.verify(jwt);
                 Guid userId = Guid.Parse(token.Issuer);
                 var user = _unitofwork.userRepository.GetById(userId);
@@ -93,14 +93,14 @@ namespace DAFwebAPI.Controllers
 
         [HttpPut]
 
-        public async Task<ActionResult> Update([FromForm] News news)
+        public async Task<ActionResult> Update([FromForm] News news, string jwt)
         {
 
 
             try
             {
 
-                var jwt = Request.Cookies["jwt"];
+             
                 var token = _jwtService.verify(jwt);
                 Guid userId = Guid.Parse(token.Issuer);
 

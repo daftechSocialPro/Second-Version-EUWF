@@ -31,6 +31,7 @@ function ForumCreate({ setIsLodding }) {
   const [title, setTitle] = useState('')
   const [isforumEvent, setIsForumEvent] = useState('')
   const [img, setImg] = useState('')
+  const jwt = sessionStorage.getItem('jwt')
 
   const photoInputHandler = (event) => {
     setImg(event.target.files[0])
@@ -54,8 +55,8 @@ function ForumCreate({ setIsLodding }) {
       event.stopPropagation()
     }
     try {
-      await axios
-        .post(urlForum, formData)
+      await axios.
+        post(`${urlForum}?jwt=${jwt}`, formData)
         .then((res) => {
           setIsLodding(false)
           setTitle('')

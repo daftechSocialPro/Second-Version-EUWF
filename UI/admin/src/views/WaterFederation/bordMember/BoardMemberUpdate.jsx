@@ -41,6 +41,7 @@ function BoardMemberUpdate({ user ,setIsLodding}) {
   const [birthDate, setBirthDate] = useState(bordMember.birthDate)
 
   const [isActive,setIsActive]=useState(bordMember.isActive);
+  const jwt = sessionStorage.getItem('jwt')
 
 
 
@@ -75,7 +76,7 @@ function BoardMemberUpdate({ user ,setIsLodding}) {
       setIsLodding(true)
       axios.defaults.withCredentials = true
       axios
-        .put(urlboardmember, formData)
+      .put(`${urlboardmember}?jwt=${jwt}`, formData)
         .then((res) => {
           setIsLodding(false)
           navigate('/boardmember')

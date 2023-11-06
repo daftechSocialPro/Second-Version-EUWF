@@ -16,4 +16,7 @@ export const urlForum = `${baseURL}/api/forum`;
 export const urlSubscriber = `${baseURL}/api/Subscriber`
 export const urlMinister = `${baseURL}/api/MinisterRole`
 export const urlVaccancy = `${baseURL}/api/Vaccancy`
+export const urlTraining = `${baseURL}/api/Training`
+export const urlGallery = `${baseURL}/api/Gallery`
+export const urlTeam = `${baseURL}/api/Team`
 export const assetUrl = baseURL;

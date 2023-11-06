@@ -56,6 +56,7 @@ function Question({ setIsLodding }) {
   const [includeReport, setIncludeReport] = useState(false)
   const navigate = useNavigate()
   const answerTypes = ['Text', 'Number', 'choose']
+  const jwt = sessionStorage.getItem('jwt')
 
   const navigateToChoose = (item) => {
     navigate('/choose', {
@@ -98,7 +99,7 @@ function Question({ setIsLodding }) {
       setIsLodding(true)
       axios.defaults.withCredentials = true
       axios
-        .post(urlQuestion, formData)
+        .post(`${urlQuestion}?jwt=${jwt}`, formData)
         .then((res) => {
           setIsLodding(false)
           setAddVisibleXL(false)
@@ -145,7 +146,7 @@ function Question({ setIsLodding }) {
       setIsLodding(true)
       axios.defaults.withCredentials = true
       axios
-        .put(urlQuestion, formData)
+        .put(`${urlQuestion}?jwt=${jwt}`, formData)
         .then((res) => {
           setIsLodding(false)
           setUpdateVisibleXL(false)

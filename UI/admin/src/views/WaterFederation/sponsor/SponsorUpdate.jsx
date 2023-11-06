@@ -52,7 +52,7 @@ function SponsorUpdate({ user, setIsLodding }) {
    
     setFile(event.target.files[0])
   }
-
+  const jwt = sessionStorage.getItem('jwt')
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -85,7 +85,7 @@ function SponsorUpdate({ user, setIsLodding }) {
       setIsLodding(true)
       axios.defaults.withCredentials = true
       axios
-        .put(urlSponsor, formData)
+        .put(`${urlSponsor}?jwt=${jwt}`, formData)
         .then((res) => {
           setIsLodding(false)
           navigate('/sponsor')

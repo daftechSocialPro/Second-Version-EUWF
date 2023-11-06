@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { CSidebar, CSidebarBrand, CSidebarNav, CSidebarToggler } from '@coreui/react'
 
 import { AppSidebarNav } from './AppSidebarNav'
-import logo from '../assets/logo4.png'
+import logo from '../assets/logowhite.png'
 import SimpleBar from 'simplebar-react'
 import 'simplebar/dist/simplebar.min.css'
 // sidebar nav config
@@ -35,7 +35,7 @@ const AppSidebar = ({user}) => {
       }}
     >
       <CSidebarBrand className="d-none d-md-flex" to="/">
-        <img src={logo} style={{ height: '250px'}} alt="logo" />
+        <img src={logo} style={{ height: '120px', width:"150px"}} alt="logo" />
       
       </CSidebarBrand>
       <CSidebarNav>

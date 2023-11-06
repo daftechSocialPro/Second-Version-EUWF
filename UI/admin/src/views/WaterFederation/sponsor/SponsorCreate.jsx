@@ -34,6 +34,7 @@ export default function SponsorCreate({ user, setIsLodding }) {
   const [type, setType]= useState('')
   const SponsorLevels = ['Platinum', 'Diamond', 'Gold', 'Silver']
   const [file, setFile] = useState('')
+  const jwt = sessionStorage.getItem('jwt')
 
   const navigate = useNavigate()
 
@@ -70,7 +71,7 @@ export default function SponsorCreate({ user, setIsLodding }) {
       setIsLodding(true)
       axios.defaults.withCredentials = true
       axios
-        .post(urlSponsor, formData)
+        .post(`${urlSponsor}?jwt=${jwt}`, formData)
         .then((res) => {
           setIsLodding(false)
           navigate('/sponsor')

@@ -1,7 +1,7 @@
 ﻿using DAFwebAPI.Data;
 using DAFwebAPI.Entities;
 using DAFwebAPI.Helpers;
-using DAFwebAPI.Migrations;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace DAFwebAPI.Services.Sponsor

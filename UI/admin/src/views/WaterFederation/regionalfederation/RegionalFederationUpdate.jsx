@@ -37,7 +37,7 @@ function RegionalFederationUpdate({ user, setIsLodding }) {
   const [regionId, setRegionId] = useState(regionalfederation.regionId)
   const [weblink, setWebLink]= useState(regionalfederation.webLink)
   const [regions, setRegions] = useState([])
-
+  const jwt = sessionStorage.getItem('jwt')
   useEffect(() => {
     axios
       .get(urlRegion)
@@ -73,7 +73,7 @@ function RegionalFederationUpdate({ user, setIsLodding }) {
       setIsLodding(true)
       axios.defaults.withCredentials = true
       axios
-        .put(urlRegionalFederation, formData)
+        .put(`${urlRegionalFederation}?jwt=${jwt}`, formData)
         .then((res) => {
           setIsLodding(false)
           navigate('/regionalwaterfederation')

@@ -89,10 +89,13 @@ namespace DAFwebAPI.Services.Team
                     var fileExtension = photoinfo.Extension;
                     var savingPath = Path.Combine(Path.GetDirectoryName("./Assets/Team_upload_media/"), team.ID.ToString() + fileExtension);
 
-
+                    if (File.Exists(savingPath))
+                    {
+                        File.Delete(savingPath);
+                    }
 
                     await image.SaveAsAsync(savingPath);
-                    teams.ImagePath = "Assets/Team_upload_photo/" + team.ID + fileExtension;
+                    teams.ImagePath = "Assets/Team_upload_media/" + team.ID + fileExtension;
                 }
 
                 

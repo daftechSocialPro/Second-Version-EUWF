@@ -1,7 +1,7 @@
 ﻿using DAFwebAPI.Dtos;
 using DAFwebAPI.Entities;
 using DAFwebAPI.Helpers;
-using DAFwebAPI.Migrations;
+
 using DAFwebAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -35,11 +35,10 @@ namespace DAFwebAPI.Controllers
 
         [HttpGet("snswers")]
 
-        public  List<GetAnswersDto> GetAnswers(Guid questionerId)
+        public  List<GetAnswersDto> GetAnswers(Guid questionerId, string jwt)
         {
 
 
-            var jwt = Request.Cookies["jwt"];
             var token = _jwtService.verify(jwt);
             Guid userId = Guid.Parse(token.Issuer);
 
@@ -65,13 +64,12 @@ namespace DAFwebAPI.Controllers
         [HttpPost]
 
 
-        public async Task<ActionResult> Post([FromForm] Questioner questioner)
+        public async Task<ActionResult> Post([FromForm] Questioner questioner, string jwt)
         {
 
             try
             {
 
-                var jwt = Request.Cookies["jwt"];
                 var token = _jwtService.verify(jwt);
                 Guid userId = Guid.Parse(token.Issuer);
 
@@ -98,13 +96,12 @@ namespace DAFwebAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> Update([FromForm] Questioner questioner)
+        public async Task<ActionResult> Update([FromForm] Questioner questioner, string jwt)
         {
 
             try
             {
 
-                var jwt = Request.Cookies["jwt"];
                 var token = _jwtService.verify(jwt);
                 Guid userId = Guid.Parse(token.Issuer);
 

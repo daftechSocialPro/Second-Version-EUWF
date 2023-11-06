@@ -2,7 +2,7 @@
 using DAFwebAPI.Dtos;
 using DAFwebAPI.Entities;
 using DAFwebAPI.Helpers;
-using DAFwebAPI.Migrations;
+
 using DAFwebAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -39,14 +39,14 @@ namespace DAFwebAPI.Controllers
             return await _unitofwork.questionRepository.GetAll(questionerId);
         }
         [HttpPost("submitanswer")]
-        public async Task<ActionResult> SubmitAnswer( string answers)
+        public async Task<ActionResult> SubmitAnswer( string answers, string jwt)
         {
 
             try
             {
                 
 
-                var jwt = Request.Cookies["jwt"];
+        
                 var token = _jwtService.verify(jwt);
                 Guid userId = Guid.Parse(token.Issuer);
 
@@ -117,13 +117,13 @@ namespace DAFwebAPI.Controllers
         [HttpPost]
 
 
-        public async Task<ActionResult> Post([FromForm] QuestionDto questions)
+        public async Task<ActionResult> Post([FromForm] QuestionDto questions, string jwt)
         {
 
             try
             {
 
-                var jwt = Request.Cookies["jwt"];
+                
                 var token = _jwtService.verify(jwt);
                 Guid userId = Guid.Parse(token.Issuer);
 
@@ -150,13 +150,12 @@ namespace DAFwebAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> Update([FromForm] QuestionDto questions)
+        public async Task<ActionResult> Update([FromForm] QuestionDto questions, string jwt)
         {
 
             try
             {
 
-                var jwt = Request.Cookies["jwt"];
                 var token = _jwtService.verify(jwt);
                 Guid userId = Guid.Parse(token.Issuer);
 

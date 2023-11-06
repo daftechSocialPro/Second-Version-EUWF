@@ -38,8 +38,7 @@ export default function VaccancyCreate({ user,setIsLodding }) {
   const [amharicDescription, setAmharicDescription] = useState(vaccancy.amharicDescription)
   const [company, setCompany] = useState(vaccancy.company)
   const [email, setEmail] = useState(vaccancy.email)
-  
-  
+  const jwt = sessionStorage.getItem('jwt')
   
   
     const handleSubmit = async (event) => {      
@@ -53,19 +52,21 @@ export default function VaccancyCreate({ user,setIsLodding }) {
     formData.set('AmharicDescription', amharicDescription)
     formData.set('Description', description)
     formData.set('Company', company)
-    formData.set('Email', email)    
-  
+    formData.set('Email', email) 
+    formData.set('id',vaccancy.id)   
+ 
       const form = event.currentTarget
 
-      if (form.checkValidity() === false) {
+      if (form.checkValidity() === false) { 
           event.stopPropagation()
       }
       try {
   
-        await axios.put(urlVaccancy, formData)
+        await axios.put(`${urlVaccancy}?jwt=${jwt}`, formData)
         .then((res) => {
             setIsLodding(false)
             navigate('/vaccancy')
+            console.log("formdata", formData)
             customToast('Vaccancy Successfully Updated', 0)
           })
      

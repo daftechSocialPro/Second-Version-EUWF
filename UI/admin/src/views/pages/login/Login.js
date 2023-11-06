@@ -17,7 +17,7 @@ import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 import axios from 'axios'
 import { urlusers } from 'src/endpoints'
-import logo from 'src/assets/logo4.png'
+import logo from 'src/assets/logowhite.png'
 import { customToast } from 'src/components/customToast'
 
 const Login = ({ setIsLoggedIn, setIsLodding }) => {
@@ -40,6 +40,8 @@ const Login = ({ setIsLoggedIn, setIsLodding }) => {
       })
 
       .then((res) => {
+        console.log(res)
+        sessionStorage.setItem("jwt",res.data.jwt)
         setIsLoggedIn(true)
         setIsLodding(false)
         customToast('Welcome , 0')
@@ -113,9 +115,9 @@ const Login = ({ setIsLoggedIn, setIsLodding }) => {
                 className="text-white  py-5"
                 style={{ width: '44%', backgroundColor: '#1e4356' }}
               >
-                <CCardBody className="text-center">
+                <CCardBody className="text-center" style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
                   <div>
-                    <img src={logo} style={{ maxHeight: '300px' }} alt="logo" />
+                    <img src={logo} alt="logo" />
                   </div>
                 </CCardBody>
               </CCard>
