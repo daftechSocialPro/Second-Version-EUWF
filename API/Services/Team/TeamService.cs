@@ -45,6 +45,7 @@ namespace DAFwebAPI.Services.Team
                     Name = team.Name,
                     Position = team.Position,
                     ImagePath = mediaPath,
+                    createdAt = DateTime.UtcNow,
 
 
                 };
@@ -80,6 +81,7 @@ namespace DAFwebAPI.Services.Team
 
                 teams.Name = team.Name;
                 teams.Position = team.Position;
+                teams.updatedAt = DateTime.UtcNow;
 
 
                 if (team.ImagePath != null)
@@ -87,7 +89,7 @@ namespace DAFwebAPI.Services.Team
                     var image = team.ImagePath;
                     var photoinfo = new FileInfo(Path.GetFileName(image.FileName));
                     var fileExtension = photoinfo.Extension;
-                    var savingPath = Path.Combine(Path.GetDirectoryName("./Assets/Team_upload_media/"), team.ID.ToString() + fileExtension);
+                    var savingPath = Path.Combine(Path.GetDirectoryName("./Assets/Team_upload_photo/"), team.ID.ToString() + fileExtension);
 
                     if (File.Exists(savingPath))
                     {
@@ -95,7 +97,7 @@ namespace DAFwebAPI.Services.Team
                     }
 
                     await image.SaveAsAsync(savingPath);
-                    teams.ImagePath = "Assets/Team_upload_media/" + team.ID + fileExtension;
+                    teams.ImagePath = "Assets/Team_upload_photo/" + team.ID + fileExtension;
                 }
 
                 

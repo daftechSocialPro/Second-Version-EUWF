@@ -44,6 +44,7 @@ namespace DAFwebAPI.Services.Gallery
                     
                     Title = post.Title,
                     ImagePath = imagePath,
+                    createdAt = DateTime.UtcNow,
 
 
                 };
@@ -78,7 +79,8 @@ namespace DAFwebAPI.Services.Gallery
 
 
                 gallery.Title = post.Title;
-                
+                gallery.updatedAt = DateTime.UtcNow;
+
 
 
                 if (post.ImagePath != null)
