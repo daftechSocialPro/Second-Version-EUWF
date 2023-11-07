@@ -2,6 +2,7 @@
 
 
 
+using DAFwebAPI.Services.Climate;
 using DAFwebAPI.Services.Contact;
 using DAFwebAPI.Services.Dashborad;
 using DAFwebAPI.Services.Forum;
@@ -52,6 +53,8 @@ namespace DAFwebAPI.Services
         ITrainingService trainingService { get; }
         ITeamService teamService { get; }
         IGalleryService galleryService { get; }
+
+        IClimateRepository climateRepository { get; }
         
 
         Task SaveChanges();

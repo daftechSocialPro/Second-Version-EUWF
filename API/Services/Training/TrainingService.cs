@@ -58,7 +58,8 @@ namespace DAFwebAPI.Services.Training
                     Title = training.Title,
                     Description = training.Description,
                     MediaPath = mediaPath,
-                    FilePath = filePath
+                    FilePath = filePath,
+                    createdAt = DateTime.UtcNow,
 
 
                 };
@@ -94,8 +95,9 @@ namespace DAFwebAPI.Services.Training
                 
                 train.Title = training.Title;
                 train.Description = training.Description;
-                              
-                               
+                train.updatedAt = DateTime.UtcNow;
+
+
                 if (training.MediaPath != null)
                 {
                     var image = training.MediaPath;

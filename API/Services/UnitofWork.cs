@@ -1,5 +1,6 @@
 
 using DAFwebAPI.Data;
+using DAFwebAPI.Services.Climate;
 using DAFwebAPI.Services.Contact;
 using DAFwebAPI.Services.Dashborad;
 using DAFwebAPI.Services.Forum;
@@ -44,6 +45,7 @@ namespace DAFwebAPI.Services
             trainingService= new TrainingService(db);
             teamService= new TeamService(db);
             galleryService = new GalleryService(db);
+            climateRepository = new ClimateRepository(db);
 
 
         }
@@ -80,6 +82,9 @@ namespace DAFwebAPI.Services
         public ITrainingService trainingService { get;set;}
         public ITeamService teamService { get;set;}
         public IGalleryService galleryService { get;set;}
+
+        public IClimateRepository climateRepository { get;set;}
+
         public async Task SaveChanges()
         {
             try

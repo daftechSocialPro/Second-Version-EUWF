@@ -49,6 +49,8 @@ namespace DAFwebAPI.Data
         public DbSet<Teams> Teams { get; set; }
         public DbSet<Gallery> Galleries { get; set; }
 
+        public DbSet<Climate> Climates { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
