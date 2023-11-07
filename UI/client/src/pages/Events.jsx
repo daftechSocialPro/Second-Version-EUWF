@@ -1,95 +1,86 @@
 import React, { useState, useEffect, useMemo } from "react";
 import OwlCarousel from "react-owl-carousel";
 import { assetUrl, urlNews, urlSponsor } from "../endpoints";
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from "react-i18next";
 import axios from "axios";
 import dateformat from "dateformat";
-import { useNavigate,useLocation } from "react-router-dom";
-import './about.css'
+import { useNavigate, useLocation } from "react-router-dom";
+import "./about.css";
 function About() {
-
   const [news, setNews] = useState([]);
-  const [filterdList, setfilterdnewsList] =useState([]);
+  const [filterdList, setfilterdnewsList] = useState([]);
   const [newsList, setNewsList] = useState([]);
   const [sponser, setSponser] = useState([]);
-  const  [searchParm,setSearchParam]= useState('')
-  const { t } = useTranslation()
+  const [searchParm, setSearchParam] = useState("");
+  const { t } = useTranslation();
 
-  const [currentPage, setCurrentPage] = useState(1)
+  const [currentPage, setCurrentPage] = useState(1);
 
-
-  const navigate = useNavigate()
-  // eyanagerkeng nberawo lmn dnnew  react-reduc x yatenahut  ena mn yeshalal 
+  const navigate = useNavigate();
+  // eyanagerkeng nberawo lmn dnnew  react-reduc x yatenahut  ena mn yeshalal
 
   const getImage = (item) => {
     return `${assetUrl}/${item}`;
   };
-  useEffect(()=>{
+  useEffect(() => {
     axios
-    .get(urlNews)
-    .then((res) => {
-      setfilterdnewsList(res.data);
-      console.log('newsdata', res.data)
-    })
-    .catch((err) => console.error(err));
+      .get(urlNews)
+      .then((res) => {
+        setfilterdnewsList(res.data);
+        console.log("newsdata", res.data);
+      })
+      .catch((err) => console.error(err));
     setfilterdnewsList(
-    newsList.filter(news => news.title.toLowerCase().includes(searchParm.toLowerCase()))
-  )
-  },[searchParm])
-  const filterdStyle = ( index ) => {
+      newsList.filter((news) =>
+        news.title.toLowerCase().includes(searchParm.toLowerCase())
+      )
+    );
+  }, [searchParm]);
+  const filterdStyle = (index) => {
     const buttonStyle = {
-      backgroundColor: index%2===0 ? 'white' : '',
-     
-     
+      backgroundColor: index % 2 === 0 ? "white" : "",
     };
     return buttonStyle;
-  }
-  
-
+  };
 
   useEffect(() => {
-
     axios.get(urlSponsor + "/bySupportType?supportType=0").then((res) => {
-      setSponser(res.data)
-    })
-  }, [])
+      setSponser(res.data);
+    });
+  }, []);
 
   useEffect(() => {
     axios
       .get(urlNews)
       .then((res) => {
         setNews(res.data);
-        console.log('newsdata', res.data)
+        console.log("newsdata", res.data);
       })
       .catch((err) => console.error(err));
   }, []);
   const navigateNewsDetial = (item) => {
-
-    navigate('detail', {
+    navigate("detail", {
       state: {
         news: item,
-        newsList: news
-      }
-    }
-    )
+        newsList: news,
+      },
+    });
+  };
+  let PageSize = 6;
 
-  }
-  let PageSize = 6
-  
   const currentTableData = useMemo(() => {
-    const firstPageIndex = (currentPage - 1) * PageSize
-    const lastPageIndex = firstPageIndex + PageSize
-    return news.slice(firstPageIndex, lastPageIndex)
-  }, [currentPage, news])
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    return news.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, news]);
 
-  const [partenerShip,setPartnerShip] = useState([])
+  const [partenerShip, setPartnerShip] = useState([]);
 
-  useEffect(()=>{
-
-    axios.get(urlSponsor+"/bySupportType?supportType=1").then((res)=>{
-      setPartnerShip(res.data)
-    })
-  },[])
+  useEffect(() => {
+    axios.get(urlSponsor + "/bySupportType?supportType=1").then((res) => {
+      setPartnerShip(res.data);
+    });
+  }, []);
   const option3 = {
     items: 1,
     margin: 0,
@@ -155,12 +146,12 @@ function About() {
     items: 1,
     gutter: 0,
     mouseDrag: true,
-    touch: 'true',
+    touch: "true",
     nav: false,
-    autoplaybuttonoutput: 'false',
+    autoplaybuttonoutput: "false",
     controls: false,
   };
-console.log(filterdList,"filter list")
+  console.log(filterdList, "filter list");
   return (
     <>
       <section
@@ -169,10 +160,14 @@ console.log(filterdList,"filter list")
       >
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
-            <li style={{color:"#0f83c6", fontWeight:"bold", fontSize:"20px"}}>
+            <li
+              style={{ color: "#0f83c6", fontWeight: "bold", fontSize: "20px" }}
+            >
               <a href="index.html">Services</a>
             </li>
-            <li style={{color:"#0f83c6", fontWeight:"bold", fontSize:"20px"}}>
+            <li
+              style={{ color: "#0f83c6", fontWeight: "bold", fontSize: "20px" }}
+            >
               <span>Events</span>
             </li>
           </ul>
@@ -180,43 +175,62 @@ console.log(filterdList,"filter list")
           <h2 className="page-header__title">Events</h2>
         </div>
       </section>
-      <section className="sec-pad-top sec-pad-bottom" style={{marginTop:"-100px"}}>
+      <section
+        className="sec-pad-top sec-pad-bottom"
+        style={{ marginTop: "-100px" }}
+      >
         <div className="container">
           <div className="row gutter-y-30">
-
-            {currentTableData.map((item, index) =>
-         <div key={index} className="col-sm-12 col-md-6 col-lg-8">
-    
+            {currentTableData.map((item, index) => (
+              <div key={index} className="col-sm-12 col-md-6 col-lg-8">
                 <div className="blog-details__content clearfix">
-                  <div className="blog-details__image" >
-                    <img src={getImage(item.img)} alt=""  />
-                    <div className="blog-card__date" style={{marginRight:"100px"}}>
-                      <span>{dateformat(item.createdAt, "d")}</span>{dateformat(item.createdAt, "mmm")}
+                  <div className="blog-details__image">
+                    <img src={getImage(item.img)} alt="" />
+                    <div
+                      className="blog-card__date"
+                      style={{ marginRight: "360px" }}
+                    >
+                      <span>{dateformat(item.createdAt, "d")}</span>
+                      {dateformat(item.createdAt, "mmm")}
                     </div>
                   </div>
                   <div className="blog-card__content">
                     <ul className="blog-card__meta list-unstyled">
                       <li>
                         <i className="fa fa-user"></i>
-                        <a onClick={() => navigateNewsDetial(item)} >by {item.waterFederation.fullName}</a>
+                        <a onClick={() => navigateNewsDetial(item)}>
+                          by {item.waterFederation.fullName}
+                        </a>
                       </li>
-                   
                     </ul>
-                    <h3 className="blog-card__title"><a onClick={() => navigateNewsDetial(item)}>{item.title}</a></h3>
+                    <h3 className="blog-card__title">
+                      <a onClick={() => navigateNewsDetial(item)}>
+                        {item.title}
+                      </a>
+                    </h3>
                     <p>
-                  <div
-                    dangerouslySetInnerHTML={{ __html: item.description }}
-                  ></div>
-                </p>
+                      <div
+                        dangerouslySetInnerHTML={{ __html: item.description }}
+                      ></div>
+                    </p>
                   </div>
                 </div>
               </div>
-            )}
-              <div className="col-lg-4"  style={{marginTop:"-700px", padding:" 0px 50px"}}>
+            ))}
+            <div
+              className="col-lg-4"
+              style={{ marginTop: "-700px", padding: " 0px 10px" }}
+            >
               <div className="sidebar mb-4">
                 <div className="sidebar__single sidebar__single--search">
                   <form action="#">
-                    <input type="text" className="searhcInput" value={searchParm} onChange={(e)=>setSearchParam(e.target.value)}  placeholder="Search here.." />
+                    <input
+                      type="text"
+                      className="searhcInput"
+                      value={searchParm}
+                      onChange={(e) => setSearchParam(e.target.value)}
+                      placeholder="Search here.."
+                    />
                     <button type="submit">
                       <i className="paroti-icon-magnifying-glass"></i>
                     </button>
@@ -227,13 +241,15 @@ console.log(filterdList,"filter list")
                   <ul className="list-unstyled sidebar__post">
                     {filterdList.slice(0, 4).map((item, index) => (
                       <li key={index} style={filterdStyle(index)}>
-                        <a onClick={()=>setNews(item)}>
+                        <a onClick={() => setNews(item)}>
                           <img
                             style={{ maxWidth: "70px" }}
                             src={getImage(item.img)}
                             alt=""
                           />
-                          <span className="sidebar__post__title">{item.title}</span>
+                          <span className="sidebar__post__title">
+                            {item.title}
+                          </span>
                         </a>
                       </li>
                     ))}
@@ -241,27 +257,24 @@ console.log(filterdList,"filter list")
                 </div>
               </div>
             </div>
-         </div>
+          </div>
         </div>
       </section>
-       <section className="sec-pad-top sec-pad-bottom sponsor-carousel sponsor-carousel--home-2">
+      <section className="sec-pad-top sec-pad-bottom sponsor-carousel sponsor-carousel--home-2">
         <div className="container">
-        {partenerShip.length && <OwlCarousel className="owl-theme " {...option6}>
-          {partenerShip.map((item,index)=>{
-              return(
-                <div className="item" key={index}>
-                <img src={getImage(item.logo)} alt="" />
-              </div>
-              )
-            })}
-            
-         </OwlCarousel>}
+          {partenerShip.length && (
+            <OwlCarousel className="owl-theme " {...option6}>
+              {partenerShip.map((item, index) => {
+                return (
+                  <div className="item" key={index}>
+                    <img src={getImage(item.logo)} alt="" />
+                  </div>
+                );
+              })}
+            </OwlCarousel>
+          )}
         </div>
       </section>
-
-
-
-
     </>
   );
 }
