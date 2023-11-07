@@ -174,7 +174,6 @@ function Home() {
   }, []);
 
   useEffect(()=>{
-
     axios.get(urlSponsor+"/bySupportType?supportType=1").then((res)=>
       setPartnerShip(res.data)
     )
@@ -230,7 +229,7 @@ function Home() {
               <div
                 className="slider-one__image"
                 style={{
-                  backgroundImage: "url(/assets/images/backgrounds/111.png)",
+                  backgroundImage: "url(/assets/images/testimonals/back.jpg)",
                 }}
               ></div>
 
@@ -273,7 +272,7 @@ function Home() {
               <div
                 className="slider-one__image"
                 style={{
-                  backgroundImage: "url(/assets/images/backgrounds/44.png)",
+                  backgroundImage: "url(/assets/images/testimonals/muktarfull.jpg)",
                 }}
               ></div>
 
@@ -464,8 +463,7 @@ function Home() {
             <p className="sec-title__tagline">{t("Events.1")}</p>
             <h2 className="sec-title__title">{t("Events.2")}</h2>
           </div>
-          {/* {forum.map((item, index) => ( <h1>hello</h1>
-              ))}  */}
+     
 
           <div className="donations-carousel">
 
@@ -609,7 +607,7 @@ function Home() {
             <div className="swiper-wrapper">
               <div className="swiper-slide">
                 <img
-                  src="/assets/images/testimonals/muktar.png"
+                  src="/assets/images/testimonals/muk.jpg"
                   style={{ width: "60px", height: "60px" }}
                 />
               </div>
@@ -621,7 +619,7 @@ function Home() {
               </div>
               <div className="swiper-slide">
                 <img
-                  src="/assets/images/testimonals/muktar.png"
+                  src="/assets/images/testimonals/peter.jpg"
                   style={{ width: "60px", height: "60px" }}
                 />
               </div>
@@ -637,7 +635,7 @@ function Home() {
                   <div className="testimonials-two__card">
                     <div className="testimonials-two__card__image">
                       <img
-                        src="/assets/images/testimonals/muktar.png"
+                        src="/assets/images/testimonals/muk.jpg"
                         style={{
                           borderRadius: "50%",
                           width: "200px",
@@ -693,7 +691,7 @@ function Home() {
                   <div className="testimonials-two__card">
                     <div className="testimonials-two__card__image">
                       <img
-                        src="/assets/images/testimonals/daniel.png"
+                        src="/assets/images/testimonals/peter.jpg"
                         style={{
                           borderRadius: "50%",
                           width: "200px",

@@ -17,33 +17,7 @@ function Teem() {
     })
     .catch((err) => console.error(err));
   },[])
-  // const team = [
-  //   {
-  //     id: 1,
-  //     name: "Muktar Ahmed",
-  //     position: "Director General",
-  //     image: "/assets/images/testimonals/muktar.png",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Petros Teklewold",
-  //     position: "Founder",
-  //     image: "/assets/images/testimonals/muktar.png",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Lulit Johnson",
-  //     position: "Developer",
-  //     image: "/assets/images/pro1.jpg",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Sara Lee",
-  //     position: "Designer",
-  //     image: "/assets/images/pro2.jpg",
-  //   },
-  // ];
-  const { t } = useTranslation()
+    const { t } = useTranslation()
   return (
     <>
       <section
@@ -52,10 +26,10 @@ function Teem() {
       >
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
-            <li>
+            <li style={{color:"#0f83c6", fontWeight:"bold", fontSize:"20px"}}>
               <a href="index.html"> Team</a>
             </li>
-            <li>
+            <li style={{color:"#0f83c6", fontWeight:"bold", fontSize:"20px"}}>
               <span>Team Profile</span>
             </li>
           </ul>

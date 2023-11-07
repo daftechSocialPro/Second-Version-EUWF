@@ -107,10 +107,10 @@ useEffect(()=>{
       >
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
-            <li>
+            <li style={{color:"#0f83c6", fontWeight:"bold", fontSize:"20px"}}>
               <a href="index.html">Home</a>
             </li>
-            <li>
+            <li style={{color:"#0f83c6", fontWeight:"bold", fontSize:"20px"}}>
               <span>News Detail</span>
             </li>
           </ul>

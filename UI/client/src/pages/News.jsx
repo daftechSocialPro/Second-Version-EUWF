@@ -129,10 +129,10 @@ function News() {
       >
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
-            <li>
+            <li style={{color:"#0f83c6", fontWeight:"bold", fontSize:"20px"}}>
               <Link to="/">{t("home.1")}</Link>
             </li>
-            <li>
+            <li style={{color:"#0f83c6", fontWeight:"bold", fontSize:"20px"}}>
               <span> {t("news.1")}</span>
             </li>
           </ul>

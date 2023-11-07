@@ -169,10 +169,10 @@ console.log(filterdList,"filter list")
       >
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
-            <li>
+            <li style={{color:"#0f83c6", fontWeight:"bold", fontSize:"20px"}}>
               <a href="index.html">Services</a>
             </li>
-            <li>
+            <li style={{color:"#0f83c6", fontWeight:"bold", fontSize:"20px"}}>
               <span>Events</span>
             </li>
           </ul>
