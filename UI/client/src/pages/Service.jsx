@@ -8,10 +8,10 @@ function Service() {
           <div className="d-flex justify-content-between align-items-center">
             <h2>Our Services</h2>
             <ol>
-              <li>
+              <li style={{color:"#0f83c6", fontWeight:"bold", fontSize:"20px"}}>
                 <a href="index.html">Home</a>
               </li>
-              <li>Our Services</li>
+              <li style={{color:"#0f83c6", fontWeight:"bold", fontSize:"20px"}}>Our Services</li>
             </ol>
           </div>
         </div>

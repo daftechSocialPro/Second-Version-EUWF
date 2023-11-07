@@ -34,10 +34,10 @@ function Climet() {
       >
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
-            <li>
+            <li style={{color:"#0f83c6", fontWeight:"bold",  fontSize:"20px"}}>
               <a href="index.html"> {t("home.1")}</a>
             </li>
-            <li>
+            <li style={{color:"#0f83c6", fontWeight:"bold",  fontSize:"20px"}}>
               <span>Climate Resilient</span>
             </li>
           </ul>
