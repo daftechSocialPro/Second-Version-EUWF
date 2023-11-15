@@ -66,6 +66,10 @@ const Team = React.lazy(() => import('./views/WaterFederation/team/Team'))
 const TeamCreate = React.lazy(() => import('./views/WaterFederation/team/TeamCreate'))
 const TeamUpdate = React.lazy(() => import('./views/WaterFederation/team/TeamEdit'))
 
+const Climate = React.lazy(() => import('./views/WaterFederation/climate/Climate'))
+const ClimateCreate = React.lazy(() => import('./views/WaterFederation/climate/ClimateCreate'))
+const ClimateEdit = React.lazy(() => import('./views/WaterFederation/climate/ClimateEdit'))
+
 const VaccancyUpdate = React.lazy(() => import('./views/WaterFederation/vaccancy/VaccancyUpdate'))
 
 const Questioner = React.lazy(() => import('./views/WaterFederation/questioner/Quesioner'))
@@ -117,6 +121,11 @@ const routes = [
   { path: '/team', name: 'Team', element: Team },
   { path: '/team/create', name: 'Team Create', element: TeamCreate },
   { path: '/team/edit', name: 'Team Update', element: TeamUpdate },
+
+  //climate
+  { path: '/climate', name: 'Climate', element: Climate },
+  { path: '/climate/create', name: 'Climate Create', element: ClimateCreate },
+  { path: '/climate/edit', name: 'Climate Update', element: ClimateEdit },
   //news
   { path: '/news', name: 'News', element: News, exact: true },
   { path: '/news/create', name: 'Add News', element: NewsCreate },

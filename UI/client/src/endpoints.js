@@ -12,5 +12,6 @@ export const urlVaccancy = `${baseURL}/api/Vaccancy`;
 export const urlTraining = `${baseURL}/api/Training`
 export const urlGallery = `${baseURL}/api/Gallery`
 export const urlTeam = `${baseURL}/api/Team`
+export const urlClimate = `${baseURL}/api/Climate`
 
 export const assetUrl = baseURL;

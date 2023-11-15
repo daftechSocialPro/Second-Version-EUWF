@@ -31,77 +31,18 @@ function BoardMembers() {
       >
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
-            <li>
+            <li style={{color:"#0f83c6", fontWeight:"bold",  fontSize:"20px"}}>
               <a href="index.html">{t("home.1")}</a>
             </li>
-            <li>
+            <li style={{color:"#0f83c6", fontWeight:"bold",  fontSize:"20px"}}>
               <span>{t("memberutilites.1")}</span>
             </li>
           </ul>
-
           <h2 className="page-header__title">{t("memberutilites.1")}</h2>
         </div>
       </section>
-
       {t("memberutilites.1")}
-    {/* <main id="main">
-      <section className="breadcrumbs">
-        <div className="container">
-          <div className="d-flex justify-content-between align-items-center">
-            <h2>Our Team</h2>
-            <ol>
-              <li>
-                <a href="index.html">Home</a>
-              </li>
-              <li>Our Team</li>
-            </ol>
-          </div>
-        </div>
-      </section>
-      <section
-        className="team"
-        data-aos="fade-up"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="500"
-      >
-        <div className="container">
-          <div className="row">
-
-
-            {boardMember.map((member,index)=>
-            <div key={index} className="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <div className="member">
-                <div className="member-img">
-                  <img
-                    src={getImage(member.userPhoto)}
-                    className="img-fluid"
-                    alt=""
-                  />
-                  <div className="social text-white p-2">
-                  {member.position}
-                  </div>
-                </div>
-                <div className="member-info">
-                  <h4>{member.name}</h4>
-                  <span>{member.position}</span>
-                  <p>
-                  <div dangerouslySetInnerHTML={{ __html: member.description }}></div>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            )}
-           
-
-          
-
-           
-          </div>
-        </div>
-      </section>
-    </main> */}
-    </>
+      </>
   );
 }
 

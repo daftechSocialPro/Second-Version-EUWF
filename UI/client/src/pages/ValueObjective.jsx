@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from "react";
-import OwlCarousel from "react-owl-carousel";
 import {useTranslation} from 'react-i18next'
 function About() {
   const{t} =useTranslation()
@@ -7,14 +6,14 @@ function About() {
     <>
       <section
         className="page-header"
-        style={{ backgroundImage: "url(/assets/images/back11.jpg)" }}
+        style={{ backgroundImage: "url(/assets/images/testimonals/back.jpg)" }}
       >
         <div className="container">
           <ul className="list-unstyled breadcrumb-one">
-            <li>
+            <li style={{color:"#0f83c6", fontWeight:"bold", fontSize:"20px"}}>
               <a href="index.html">About</a>
             </li>
-            <li>
+            <li style={{color:"#0f83c6", fontWeight:"bold", fontSize:"20px"}}>
               <span>Core Value & Objectives</span>
             </li>
           </ul>

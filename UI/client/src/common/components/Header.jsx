@@ -226,7 +226,7 @@ function Header() {
                 >
                   <Link to="/gallery">Photo Gallery</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link
                     className={
                       location.pathname === "/newsandevents"? "active" : ""
@@ -235,7 +235,7 @@ function Header() {
                   >
                     Events & Forums
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </li>
           
