@@ -2,10 +2,12 @@ using DAFwebAPI.Data;
 using DAFwebAPI.Helpers;
 using DAFwebAPI.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.FileProviders;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -32,6 +34,8 @@ builder.Services.AddCors(options =>
 }
 );
 
+
+
 //builder.Services.AddCors(policyBuilder =>
 //    policyBuilder.AddDefaultPolicy(policy =>
 //        policy.WithOrigins("*").AllowAnyHeader().AllowAnyHeader())
@@ -57,8 +61,6 @@ app.UseStaticFiles(new StaticFileOptions
 
 app.UseHttpsRedirection();
 app.UseRouting();
-
-
 
 app.UseAuthorization();
 app.MapControllers();

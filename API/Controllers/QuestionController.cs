@@ -4,6 +4,7 @@ using DAFwebAPI.Entities;
 using DAFwebAPI.Helpers;
 
 using DAFwebAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,24 +21,45 @@ namespace DAFwebAPI.Controllers
         private readonly IUnitOfWork _unitofwork;
         private readonly JwtService _jwtService;
         private readonly ApplicationDbContext _context;
-        public QuestionController(IUnitOfWork unitOfWork, JwtService jwtService,ApplicationDbContext context)
+        private readonly IConfiguration _config;
+        public QuestionController(IUnitOfWork unitOfWork, JwtService jwtService,ApplicationDbContext context, IConfiguration config)
         {
 
 
             _unitofwork = unitOfWork;
             _jwtService = jwtService;
             _context = context;
+            _config = config;
 
 
         }
-        [HttpGet]
 
+
+        [HttpGet]
         public async Task<List<QuestionDto>> GetAll(Guid questionerId)
         {
-
-
             return await _unitofwork.questionRepository.GetAll(questionerId);
         }
+
+        [AllowAnonymous]
+        [HttpGet("generatelink")]
+        public async Task<IActionResult> GenerateLink(Guid questionerId)
+        {
+            var frontendurl = _config.GetValue<string>("frontend_url");
+            var formLink = $"{frontendurl}/questioner/{questionerId}";
+
+            try
+            {
+                var questions = await _unitofwork.questionRepository.GetAll(questionerId);
+                return Ok(new { FormLink = formLink, Questions = questions });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error generating form link: {ex.Message}");
+            }
+        }
+
+
         [HttpPost("submitanswer")]
         public async Task<ActionResult> SubmitAnswer( string answers, string jwt)
         {

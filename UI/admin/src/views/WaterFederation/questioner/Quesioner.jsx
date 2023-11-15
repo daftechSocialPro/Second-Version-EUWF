@@ -52,7 +52,7 @@ function Questioner({ setIsLodding }) {
   const [submittedDate, setSubmittedDate] = useState('')
   const [status, setStatus] = useState('')
 
-  const forwhoms = ['Regional Association', 'Water Utility']
+  const forwhoms = ['Regional Association', 'Water Utility', 'Other']
   const questionerStatus = ['Inactive', 'Active', 'Closed']
 
   const [Questioners, setQuestioners] = useState([])

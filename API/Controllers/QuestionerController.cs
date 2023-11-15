@@ -73,7 +73,6 @@ namespace DAFwebAPI.Controllers
                 var token = _jwtService.verify(jwt);
                 Guid userId = Guid.Parse(token.Issuer);
 
-
                 questioner.ID = Guid.NewGuid();
                 questioner.createdAt = DateTime.UtcNow;
                 questioner.createdBy = userId;
@@ -120,11 +119,6 @@ namespace DAFwebAPI.Controllers
             }
 
             return NoContent();
-
-
-
-
-
         }
     }
 }

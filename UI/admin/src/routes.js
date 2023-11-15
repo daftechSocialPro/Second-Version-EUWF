@@ -113,10 +113,10 @@ const routes = [
   { path: '/gallery', name: 'Gallery', element: Gallery },
   { path: '/gallery/create', name: 'Gallery Create', element: GalleryCreate },
   { path: '/gallery/edit', name: 'Gallery Update', element: GalleryUpdate },
-   //team
-   { path: '/team', name: 'Team', element: Team },
-   { path: '/team/create', name: 'Team Create', element: TeamCreate },
-   { path: '/team/edit', name: 'Team Update', element: TeamUpdate },
+  //team
+  { path: '/team', name: 'Team', element: Team },
+  { path: '/team/create', name: 'Team Create', element: TeamCreate },
+  { path: '/team/edit', name: 'Team Update', element: TeamUpdate },
   //news
   { path: '/news', name: 'News', element: News, exact: true },
   { path: '/news/create', name: 'Add News', element: NewsCreate },

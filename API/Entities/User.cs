@@ -28,7 +28,8 @@ namespace DAFwebAPI.Entities
     {
         WaterFederation,
         RegionalFederation,
-        WaterUtility
+        WaterUtility,
+        Other
     }
 
 }
